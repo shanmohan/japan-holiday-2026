@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Family Holiday 2026</title>
+<style>
+  :root {
+    --cherry: #E8829B;
+    --cherry-light: #FFF0F3;
+    --cherry-dark: #C4506A;
+    --tokyo-blue: #2D5F8A;
+    --kyoto-green: #4A7C59;
+    --osaka-orange: #D4722C;
+    --bg: #FAFAF7;
+    --card-bg: #FFFFFF;
+    --text: #2C2C2C;
+    --text-light: #666666;
+    --border: #E8E5E0;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 40px 20px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='20' cy='20' r='3' fill='%23E8829B' opacity='0.15'/%3E%3Ccircle cx='50' cy='40' r='2' fill='%23E8829B' opacity='0.1'/%3E%3Ccircle cx='80' cy='15' r='4' fill='%23E8829B' opacity='0.12'/%3E%3Ccircle cx='35' cy='70' r='2.5' fill='%23E8829B' opacity='0.1'/%3E%3Ccircle cx='70' cy='60' r='3' fill='%23E8829B' opacity='0.08'/%3E%3Ccircle cx='10' cy='85' r='2' fill='%23E8829B' opacity='0.12'/%3E%3Ccircle cx='90' cy='80' r='3.5' fill='%23E8829B' opacity='0.1'/%3E%3C/svg%3E");
+    background-size: 200px;
+  }
+  .hero h1 { font-size: 28px; font-weight: 700; position: relative; margin-bottom: 4px; }
+  .hero .subtitle { font-size: 15px; opacity: 0.85; position: relative; }
+  .hero .dates { font-size: 13px; opacity: 0.7; margin-top: 8px; position: relative; }
+  .hero .sakura { font-size: 24px; position: relative; margin-bottom: 8px; }
+
+  /* Navigation tabs */
+  .nav-container {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .nav-tabs {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 8px;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .nav-tab {
+    flex: 0 0 auto;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-light);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .nav-tab.active, .nav-tab:hover { color: var(--cherry-dark); border-bottom-color: var(--cherry); }
+
+  .container { max-width: 680px; margin: 0 auto; padding: 0 16px; }
+
+  /* Section headers */
+  .section-header {
+    padding: 24px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-header .icon { font-size: 22px; }
+  .section-header h2 { font-size: 20px; font-weight: 700; }
+  .section-header .city-badge {
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 600;
+    margin-left: auto;
+  }
+  .city-tokyo { background: var(--tokyo-blue); }
+  .city-kyoto { background: var(--kyoto-green); }
+  .city-osaka { background: var(--osaka-orange); }
+
+  /* Day cards */
+  .day-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .day-header {
+    padding: 14px 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+  }
+  .day-header:hover { background: #FAFAF7; }
+  .day-num {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .day-num .d { font-size: 16px; line-height: 1; }
+  .day-num .m { font-size: 9px; line-height: 1; margin-top: 2px; text-transform: uppercase; }
+  .day-info { flex: 1; min-width: 0; }
+  .day-info .title { font-size: 15px; font-weight: 600; }
+  .day-info .desc { font-size: 12px; color: var(--text-light); margin-top: 2px; }
+  .day-chevron {
+    font-size: 18px;
+    color: var(--text-light);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+  .day-card.open .day-chevron { transform: rotate(180deg); }
+  .day-content {
+    display: none;
+    padding: 0 18px 18px;
+    border-top: 1px solid var(--border);
+  }
+  .day-card.open .day-content { display: block; }
+
+  /* Activity items */
+  .activity {
+    padding: 14px 0;
+    border-bottom: 1px solid #f0eeea;
+  }
+  .activity:last-child { border-bottom: none; }
+  .activity-time {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--cherry-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .activity-name { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .activity-detail { font-size: 13px; color: var(--text-light); margin-bottom: 6px; }
+  .activity-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #f5f3ef;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+  .tag.free { background: #E8F5E9; color: #2E7D32; }
+  .tag.booked { background: #E3F2FD; color: #1565C0; }
+  .tag.book-now { background: #FFF3E0; color: #E65100; }
+  .tag.tip { background: #FFF0F3; color: var(--cherry-dark); }
+
+  /* Booking link */
+  .book-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    color: var(--tokyo-blue);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+  .book-link:hover { text-decoration: underline; }
+
+  /* Info cards */
+  .info-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .info-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .info-card p, .info-card li { font-size: 13px; color: var(--text-light); margin-bottom: 6px; }
+  .info-card ul { padding-left: 18px; }
+
+  /* Hotel comparison */
+  .hotel-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .hotel-card.current { border-left: 4px solid var(--cherry); }
+  .hotel-card.alt { border-left: 4px solid #4CAF50; }
+  .hotel-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .hotel-label.cur { color: var(--cherry-dark); }
+  .hotel-label.sug { color: #2E7D32; }
+  .hotel-name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .hotel-price { font-size: 14px; color: var(--cherry-dark); font-weight: 600; }
+  .hotel-features { font-size: 12px; color: var(--text-light); margin: 6px 0; }
+
+  /* Transport summary */
+  .transport-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0eeea;
+    font-size: 13px;
+  }
+  .transport-row:last-child { border-bottom: none; }
+  .transport-icon { font-size: 18px; margin-right: 10px; flex-shrink: 0; }
+  .transport-route { flex: 1; }
+  .transport-cost { font-weight: 700; color: var(--cherry-dark); white-space: nowrap; }
+
+  /* Budget table */
+  .budget-table { width: 100%; font-size: 13px; border-collapse: collapse; }
+  .budget-table th { text-align: left; padding: 8px 6px; border-bottom: 2px solid var(--border); font-size: 12px; color: var(--text-light); }
+  .budget-table td { padding: 8px 6px; border-bottom: 1px solid #f0eeea; }
+  .budget-table .total td { font-weight: 700; border-top: 2px solid var(--text); font-size: 14px; }
+
+  /* Flight card */
+  .flight-card {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+  .flight-card .flight-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; margin-bottom: 8px; }
+  .flight-route { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .flight-city { font-size: 18px; font-weight: 700; }
+  .flight-arrow { font-size: 14px; opacity: 0.5; }
+  .flight-details { font-size: 12px; opacity: 0.75; }
+  .flight-ref { font-size: 11px; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 10px; display: inline-block; margin-top: 6px; }
+
+  /* Checklist */
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px 0;
+    font-size: 13px;
+  }
+  .checklist-item input[type=checkbox] {
+    margin-top: 3px;
+    accent-color: var(--cherry);
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Section dividers */
+  .city-divider {
+    padding: 20px 0 8px;
+    text-align: center;
+  }
+  .city-divider .emoji { font-size: 28px; }
+  .city-divider .label { font-size: 12px; color: var(--text-light); margin-top: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+
+  /* Collapsible sections */
+  .collapsible-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    cursor: pointer;
+    user-select: none;
+    background: var(--card-bg);
+    border-radius: 14px;
+    margin-bottom: 8px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .collapsible-header h3 { font-size: 15px; display: flex; align-items: center; gap: 8px; }
+  .collapsible-body { display: none; }
+  .collapsible-body.show { display: block; }
+
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 12px;
+    color: var(--text-light);
+  }
+
+  /* Print friendly */
+  @media print {
+    .nav-container { display: none; }
+    .day-content { display: block !important; }
+    .collapsible-body { display: block !important; }
+  }
+
+  @media (min-width: 768px) {
+    .hero h1 { font-size: 34px; }
+    .container { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="sakura">&#127800;</div>
+  <h1>Japan Family Holiday</h1>
+  <div class="subtitle">Mohan, Tharini &amp; Kids &middot; Cherry Blossom Season</div>
+  <div class="dates">3&ndash;18 April 2026 &middot; Tokyo &middot; Kyoto &middot; Osaka</div>
+</div>
+
+<div class="nav-container">
+  <div class="nav-tabs">
+    <a class="nav-tab active" onclick="scrollToSection('flights')">Flights</a>
+    <a class="nav-tab" onclick="scrollToSection('transport')">Transport</a>
+    <a class="nav-tab" onclick="scrollToSection('tokyo')">Tokyo</a>
+    <a class="nav-tab" onclick="scrollToSection('kyoto')">Kyoto</a>
+    <a class="nav-tab" onclick="scrollToSection('osaka')">Osaka</a>
+    <a class="nav-tab" onclick="scrollToSection('hotels')">Hotels</a>
+    <a class="nav-tab" onclick="scrollToSection('budget')">Budget</a>
+    <a class="nav-tab" onclick="scrollToSection('checklist')">Checklist</a>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ==================== FLIGHTS ==================== -->
+<div id="flights">
+  <div class="section-header">
+    <span class="icon">&#9992;&#65039;</span>
+    <h2>Flights</h2>
+  </div>
+
+  <div class="flight-card">
+    <div class="flight-label">Outbound &middot; Thu 3 &ndash; Sun 5</div>
+    <div class="flight-route">
+      <span class="flight-city">MEL</span>
+      <span class="flight-arrow">&#9992;&#65039; SIN &#9992;&#65039;</span>
+      <span class="flight-city">HND</span>
+    </div>
+    <div class="flight-details">
+      TR 25 &middot; MEL 22:30 &rarr; SIN 03:35 (8h 05m)<br>
+      Layover in Singapore: 13h 55m<br>
+      TR 882 &middot; SIN 17:30 &rarr; HND 01:00+1 (6h 30m)
+    </div>
+    <div class="flight-ref">Scoot &middot; Ref: YHK82E</div>
+  </div>
+
+  <div class="flight-card">
+    <div class="flight-label">Return &middot; Fri 17 &ndash; Sat 18</div>
+    <div class="flight-route">
+      <span class="flight-city">KIX</span>
+      <span class="flight-arrow">&#9992;&#65039; SIN &#9992;&#65039;</span>
+      <span class="flight-city">MEL</span>
+    </div>
+    <div class="flight-details">
+      TR 821 &middot; KIX 15:50 &rarr; SIN 21:25 (6h 35m)<br>
+      Layover in Singapore: 5h 05m<br>
+      TR 58 &middot; SIN 02:30 &rarr; MEL 11:45 (7h 15m)
+    </div>
+    <div class="flight-ref">Scoot &middot; Ref: YHK82E</div>
+  </div>
+
+  <div class="info-card">
+    <h3>&#9202;&#65039; Singapore Layover (13h 55m) &mdash; Sat 4 Apr</h3>
+    <p style="margin-bottom:8px;">You land at <strong>3:35 AM</strong> and fly out at <strong>5:30 PM</strong>. Meeting cousin at <strong>Jewel Changi Airport at 6:00 AM</strong>. That gives you ~11 hours to explore!</p>
+
+    <p style="font-weight:700;margin-bottom:4px;">&#127748; 3:35 &ndash; 6:00 AM (before cousin arrives)</p>
+    <ul style="margin:0 0 10px 18px;line-height:1.8">
+      <li>Clear immigration &amp; drop bags at <strong>left luggage</strong> (Changi Terminal 3, 24hrs, ~A$10/bag)</li>
+      <li>Head to <strong>Jewel</strong> (connected to Terminal 1 via link bridge, open 24/7)</li>
+      <li><strong>Butterfly Garden</strong> (Terminal 3, before heading to Jewel) &mdash; open 24/7, free! Quick visit with the kids</li>
+      <li>Walk around Jewel's gardens &mdash; even at night the indoor forest is beautiful</li>
+    </ul>
+
+    <p style="font-weight:700;margin-bottom:4px;">&#9749; 6:00 AM &ndash; Breakfast with Cousin at Jewel</p>
+    <ul style="margin:0 0 10px 18px;line-height:1.8">
+      <li><strong>6:00 AM &mdash; Starbucks</strong> (Jewel, open 24hrs on Fri &amp; Sat!) &mdash; meet your cousin here for coffee. The only Jewel restaurant open this early on Saturday</li>
+      <li><strong>7:30 AM &mdash; Ya Kun Kaya Toast</strong> (Jewel) &mdash; THE iconic Singapore breakfast. Kaya toast with runny soft-boiled eggs + thick kopi. A must-try! Kids will love dipping toast into the eggs</li>
+      <li><strong>Also at 7:30 AM &mdash; Toast Box</strong> (Jewel) &mdash; similar local breakfast: thick toast, eggs, laksa. Great alternative if Ya Kun has a queue</li>
+    </ul>
+
+    <p style="font-weight:700;margin-bottom:4px;">&#127800; 7:30 &ndash; 9:30 AM (Jewel attractions with cousin #1 &amp; kids)</p>
+    <ul style="margin:0 0 10px 18px;line-height:1.8">
+      <li><strong>West Gateway Playground</strong> (Level 2) &mdash; free jungle-themed play area for the 5-year-old while you finish coffee</li>
+      <li>Wander the <strong>Shiseido Forest Valley</strong> &mdash; Jewel's 5-storey indoor garden with walking trails, misty pathways, and tropical plants. Free and beautiful</li>
+      <li>Browse Jewel's shops as they open from 8&ndash;10 AM</li>
+    </ul>
+
+    <p style="font-weight:700;margin-bottom:4px;">&#127795; 9:30 &ndash; 11:30 AM (Rain Vortex &amp; Canopy Park)</p>
+    <ul style="margin:0 0 10px 18px;line-height:1.8">
+      <li><strong>Rain Vortex</strong> &mdash; world's tallest indoor waterfall (40m), free to view! First light &amp; sound show at 9 AM. Absolutely spectacular &mdash; gather the family for photos</li>
+      <li><strong>Canopy Park</strong> opens at 10 AM &mdash; SGD $5/person (~A$5):
+        <ul style="margin:4px 0 4px 16px;">
+          <li><strong>Bouncing Net &amp; Walking Net:</strong> Suspended 8m above ground &mdash; Anoshan &amp; Anoshka will go wild</li>
+          <li><strong>Discovery Slides:</strong> Panoramic slides with amazing views</li>
+          <li><strong>Hedge Maze:</strong> Singapore's largest &mdash; race the kids through it!</li>
+          <li><strong>Mirror Maze:</strong> Fun for all ages, especially the 5-year-old</li>
+          <li><strong>Foggy Bowls:</strong> Magical cloud playground with swirling mist</li>
+          <li><strong>Canopy Bridge:</strong> Glass-floor walkway 23m up (A$8 extra)</li>
+        </ul>
+      </li>
+      <li><strong>Gundam Base Singapore</strong> &mdash; free Gunpla workshops on weekends (Sat!). Anoshan would love this</li>
+    </ul>
+
+    <p style="font-weight:700;margin-bottom:4px;">&#128661; 11:30 AM &ndash; Head to Gardens by the Bay</p>
+    <ul style="margin:0 0 10px 18px;line-height:1.8">
+      <li>Say bye to cousin #1 (or bring them along!)</li>
+      <li>Grab a <strong>taxi from Jewel</strong> &rarr; Marina Bay Sands (~20 min, ~A$15&ndash;20). Leave bags at Changi left luggage before you go &mdash; travel light!</li>
+    </ul>
+
+    <p style="font-weight:700;margin-bottom:4px;">&#127860; 12:00 &ndash; 2:00 PM &ndash; Lunch with Cousin #2 at Punjab Grill</p>
+    <ul style="margin:0 0 10px 18px;line-height:1.8">
+      <li><strong style="color:#2E7D32">&#9989; BOOKED &mdash; Punjab Grill</strong>, The Shoppes at Marina Bay Sands B1-01A, Galleria Level (5 min walk from Gardens by the Bay via Lions Bridge)</li>
+      <li>North Indian fine-casual by celebrity chef Jiggs Kalra. Butter chicken, tandoori platters, naan, palak paneer, biryani</li>
+      <li>~A$40&ndash;60 per person &bull; Sat 4 Apr, 12:00 PM &bull; <strong>Phone:</strong> <a href="tel:+6566887395">+65 6688 7395</a></li>
+      <li><a href="https://www.marinabaysands.com/restaurants/punjab-grill.html" target="_blank">Punjab Grill &mdash; Marina Bay Sands &#8599;</a></li>
+    </ul>
+
+    <p style="font-weight:700;margin-bottom:4px;">&#127795; 2:00 &ndash; 3:15 PM &ndash; Gardens by the Bay (post-lunch explore)</p>
+    <ul style="margin:0 0 10px 18px;line-height:1.8">
+      <li>Walk from MBS to Gardens via Lions Bridge (5 min)</li>
+      <li><strong>Supertree Grove</strong> &mdash; iconic 25&ndash;50m tall tree structures, FREE to walk around. For A$10 walk the <strong>OCBC Skyway</strong> bridge between the trees (22m up!) &mdash; stunning views with Marina Bay backdrop</li>
+      <li><strong>Children's Garden</strong> &mdash; FREE water play area with fountains &amp; spray jets that react to kids' movements. Bring a change of clothes for the 5-year-old!</li>
+      <li><strong>If time allows:</strong> Quick visit to <strong>Cloud Forest</strong> dome (35m indoor waterfall, misty mountain trails) or <strong>Flower Dome</strong> (world's largest glass greenhouse). Combo ticket ~A$30 adult, ~A$15 child &mdash; allow 45&ndash;60 min for both</li>
+    </ul>
+
+    <p style="font-weight:700;margin-bottom:4px;">&#128691; 3:15 PM &ndash; Head back to Changi</p>
+    <ul style="margin:0 0 10px 18px;line-height:1.8">
+      <li>Say goodbye to cousin #2</li>
+      <li>Taxi from Gardens by the Bay &rarr; Changi Airport (~20 min, ~A$15&ndash;20)</li>
+      <li>Arrive by <strong>3:45 PM</strong>, collect bags, head through immigration</li>
+      <li>At gate by <strong>4:30 PM</strong> for your <strong>5:30 PM</strong> flight to Tokyo</li>
+    </ul>
+
+    <p style="margin-top:6px;font-size:12px;"><strong>Tip:</strong> Australian passport holders don't need a Singapore visa for short stays. Jewel is a public mall (no boarding pass needed) &mdash; both cousins can meet you there or at Gardens by the Bay. Jewel is connected to Terminal 1 via link bridge.</p>
+  </div>
+</div>
+
+<!-- ==================== TRANSPORT ==================== -->
+<div id="transport">
+  <div class="section-header">
+    <span class="icon">&#128646;</span>
+    <h2>Getting Around</h2>
+  </div>
+
+  <div class="info-card">
+    <h3>&#127915; JR Pass &mdash; NOT Recommended for You</h3>
+    <p style="margin-bottom:8px;">Here's the full comparison for your family (3 adult fares + 1 child fare; 5yo rides free):</p>
+    <table style="width:100%;font-size:12px;border-collapse:collapse;margin-bottom:10px;">
+      <tr style="border-bottom:1px solid #ddd;"><td></td><td style="font-weight:700;padding:4px 6px;">JR Pass (7-day)</td><td style="font-weight:700;padding:4px 6px;">Individual Tickets</td></tr>
+      <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:4px 6px;">Mohan (adult)</td><td style="padding:4px 6px;">A$500</td><td style="padding:4px 6px;" rowspan="3">Tokyo&rarr;Kyoto Hikari: <strong>A$400</strong><br>DisneySea JR return: <strong>A$14</strong><br>Kyoto&rarr;Osaka JR Rapid: <strong>A$17</strong><br>Osaka local JR (USJ etc.): <strong>A$11</strong></td></tr>
+      <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:4px 6px;">Tharini (adult)</td><td style="padding:4px 6px;">A$500</td></tr>
+      <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:4px 6px;">Anoshan, 13yo (adult fare)</td><td style="padding:4px 6px;">A$500</td></tr>
+      <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:4px 6px;">Anoshka, 10yo (child)</td><td style="padding:4px 6px;">A$250</td><td style="padding:4px 6px;">Half of above: <strong>A$100</strong></td></tr>
+      <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:4px 6px;">Arushan, 5yo (infant)</td><td style="padding:4px 6px;">Free</td><td style="padding:4px 6px;">Free (sits on lap)</td></tr>
+      <tr style="border-top:2px solid #333;font-weight:700;font-size:14px;"><td style="padding:6px;">TOTAL</td><td style="padding:6px;color:#C4506A;">A$1,750</td><td style="padding:6px;color:#2E7D32;">A$542</td></tr>
+    </table>
+    <p><strong>You save ~A$1,200 by skipping the JR Pass.</strong> Your only long-distance JR ride is Tokyo&rarr;Kyoto. Everything else is short local hops.</p>
+    <p style="margin-top:6px;">The pass also <strong>doesn't cover Nozomi</strong> (fastest Shinkansen, 2h 15m) &mdash; you'd be limited to Hikari (2h 40m, less frequent). Plus it doesn't cover subway, private rail (Kintetsu to Nara), or Nankai Rapi:t to Kansai Airport. Individual tickets + IC cards = more flexibility, faster trains, and much cheaper.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>&#128179; IC Cards &mdash; Your Local Transport Pass</h3>
+    <p style="font-size:1.05em;margin-bottom:12px"><strong>How it works:</strong> An IC card is a rechargeable tap-and-go transit card (like an Opal card). Load money, tap on at the gate when you enter a station, tap off when you exit &mdash; the correct fare is deducted automatically. No need to buy individual tickets!</p>
+
+    <p><strong>Where to get them:</strong></p>
+    <ul style="margin:4px 0 12px 18px;line-height:1.7">
+      <li><strong>Adults &amp; Anoshan (13):</strong> Download the <strong>Welcome Suica</strong> app on iPhone before you land, or pick up physical cards at Haneda Airport JR ticket machines.</li>
+      <li><strong>Anoshka (10):</strong> Needs a <strong>Child IC card</strong> (half-price fares). Get this at any JR ticket office &mdash; bring her passport as proof of age.</li>
+      <li><strong>5-year-old:</strong> Rides <strong>free</strong> on all local trains and buses (no card needed).</li>
+    </ul>
+
+    <p><strong>Works across all 3 cities:</strong> The same card works on JR local trains, Metro/subway, city buses, and monorails in Tokyo, Kyoto, and Osaka. Also accepted at convenience stores (7-Eleven, Lawson, FamilyMart), vending machines, and many shops.</p>
+
+    <p style="margin-top:10px"><strong>How much to load:</strong></p>
+    <ul style="margin:4px 0 12px 18px;line-height:1.7">
+      <li>Tokyo (5 days): ~A$30&ndash;40 per adult card</li>
+      <li>Kyoto (4 days): ~A$20&ndash;30 per adult card (you&rsquo;ll use more buses here)</li>
+      <li>Osaka (4 days): ~A$20&ndash;30 per adult card</li>
+      <li>A typical train/metro ride costs A$1.50&ndash;3.50</li>
+    </ul>
+
+    <p><strong>Top up anytime:</strong> Every station has machines with English. Insert cash or use Apple Pay to reload. Keep at least A$5 on each card to avoid getting stuck at a gate.</p>
+
+    <p style="margin-top:8px"><strong>Family cost (cards only):</strong> A$40 (4 cards &times; A$10 deposit) &bull; <strong>Estimated local transit total:</strong> ~A$250&ndash;350 for the whole trip</p>
+  </div>
+
+  <div class="info-card">
+    <h3>&#128663; Key Transport Legs</h3>
+    <div class="transport-row">
+      <span class="transport-icon">&#128660;</span>
+      <div class="transport-route"><strong>Haneda &rarr; Asakusa</strong> (1:05 AM arrival)<br>&#9989; <strong>BOOKED</strong> &mdash; Klook / Relax Airport Taxi &bull; Ref: MSV067447<br>
+        <span style="font-size:0.85em">7-seater &bull; Driver tracks flight TR882 &bull; 90 min free wait &bull; Meet at Terminal 3<br>
+          Driver: <a href="tel:+81-5058659193">+81-50-5865-9193</a>
+        </span>
+      </div>
+      <span class="transport-cost">&#9989; Booked</span>
+    </div>
+    <div class="transport-row">
+      <span class="transport-icon">&#128645;</span>
+      <div class="transport-route"><strong>Tokyo &rarr; Kyoto</strong><br>Shinkansen Nozomi ~2h 15m, book via SmartEX app</div>
+      <span class="transport-cost">~A$400</span>
+    </div>
+    <div class="transport-row">
+      <span class="transport-icon">&#128645;</span>
+      <div class="transport-route"><strong>Kyoto &rarr; Nara &rarr; Osaka</strong><br>Kintetsu Line via Nara stopover (~30 min each leg)</div>
+      <span class="transport-cost">~A$50</span>
+    </div>
+    <div class="transport-row">
+      <span class="transport-icon">&#128645;</span>
+      <div class="transport-route"><strong>Osaka &rarr; Kansai Airport</strong><br>Nankai Rapi:t from Namba, 35 min. Leave by 12:30 PM on departure day (Fri 17th).</div>
+      <span class="transport-cost">~A$75</span>
+    </div>
+    <div class="transport-row">
+      <span class="transport-icon">&#128647;</span>
+      <div class="transport-route"><strong>Asakusa &rarr; DisneySea</strong><br>Subway to Tokyo Stn &rarr; JR to Maihama &rarr; Disney monorail (~40 min)</div>
+      <span class="transport-cost">~A$5</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TOKYO ==================== -->
+<div id="tokyo">
+  <div class="city-divider">
+    <div class="emoji">&#127751;</div>
+    <div class="label">Tokyo &middot; 5 Nights</div>
+  </div>
+
+  <!-- Day 1: Apr 5 -->
+  <div class="day-card open" id="day-apr5">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:var(--tokyo-blue)"><span class="d">5</span><span class="m">Sun</span></div>
+      <div class="day-info">
+        <div class="title">Arrival, Ueno Park &amp; Asakusa</div>
+        <div class="desc">Sun &middot; Light day &mdash; Ueno Park, Sensoji &amp; cherry blossoms</div>
+      </div>
+      <span class="day-chevron">&#9660;</span>
+    </div>
+    <div class="day-content">
+      <div class="activity">
+        <div class="activity-time">1:05 AM &mdash; Arrival &amp; Pickup</div>
+        <div class="activity-name">Arrive Tokyo Haneda (Terminal 3) &rarr; Private Taxi to Asakusa</div>
+        <div class="activity-detail">
+          <strong style="color:#2E7D32">&#9989; BOOKED &mdash; Klook Airport Transfer</strong><br>
+          <strong>Booking Ref:</strong> MSV067447<br>
+          <strong>Vehicle:</strong> Economy 7-seater (Nissan Serena / Toyota Noah or similar)<br>
+          <strong>Pickup:</strong> Sun 5th, 1:05 AM &mdash; driver will track flight TR882 and meet you on arrival<br>
+          <strong>Drop-off:</strong> 2 Chome-20-4 Kaminarimon, Taito City (MIMARU Asakusa)<br>
+          <strong>Passengers:</strong> 5 &bull; <strong>Max luggage:</strong> 4 pieces<br>
+          <strong>Free wait time:</strong> 90 minutes from actual landing<br>
+          <strong>Meeting point (Terminal 3):</strong> Contact driver on arrival &mdash; they&rsquo;ll be at the designated meet-up location within 5&ndash;10 min<br>
+          <strong>Driver contact:</strong> <a href="tel:+81-5058659193">+81-50-5865-9193</a> &bull; <a href="mailto:service@airport-taxi.com">service@airport-taxi.com</a><br>
+          <strong>Provider:</strong> Relax Airport Taxi<br>
+          <strong>Cancellation:</strong> Free up to 24 hours before pickup<br>
+          <em>Early check-in may not be available &mdash; ask hotel to hold luggage if you arrive before check-in time.</em>
+        </div>
+        <div class="activity-tags"><span class="tag booked">Booked via Klook</span><span class="tag">Ref: MSV067447</span></div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Late Morning</div>
+        <div class="activity-name">Ueno Park &amp; Zoo</div>
+        <div class="activity-detail">A gentle start to the trip! Huge park with cherry blossoms, a zoo (giant pandas!), museums, paddle boats, and playgrounds. The 5-year-old can run free while you all ease into Japan. Ueno Zoo is open on Sundays, so today is perfect for it.<br>&#128646; <em>Ginza Line from Asakusa &rarr; Ueno (6 min, 1 stop)</em></div>
+        <div class="activity-tags">
+          <span class="tag free">Park is free</span>
+          <span class="tag">Zoo: Adults A$6, under 12 free</span>
+          <span class="tag tip">Open on Sundays!</span>
+        </div>
+        <a href="https://www.uenozoo.org/" target="_blank" class="book-link">Ueno Zoo info &#8599;</a>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Afternoon</div>
+        <div class="activity-name">Rest at Hotel &amp; Asakusa Stroll</div>
+        <div class="activity-detail">Take it easy after the long flight. Explore the local streets, grab some Japanese convenience store snacks (7-Eleven onigiri is amazing!), and let the kids adjust to the timezone.<br>&#128694; <em>Around the hotel area</em></div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Evening</div>
+        <div class="activity-name">Sumida Park Cherry Blossoms</div>
+        <div class="activity-detail">Beautiful evening illuminations along the Sumida River. Cherry trees lit up at night with Tokyo Skytree in the background &mdash; stunning photos. Some petals may remain in early April.<br>&#128694; <em>5 min walk from hotel &mdash; cross Azuma Bridge or follow the riverside path</em></div>
+        <div class="activity-tags"><span class="tag free">Free</span><span class="tag">5 min walk</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 2: Apr 6 -->
+  <div class="day-card" id="day-apr6">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:var(--tokyo-blue)"><span class="d">6</span><span class="m">Mon</span></div>
+      <div class="day-info">
+        <div class="title">Sensoji &amp; Akihabara</div>
+        <div class="desc">Mon &middot; Sensoji + Akihabara Electric Town</div>
+      </div>
+      <span class="day-chevron">&#9660;</span>
+    </div>
+    <div class="day-content">
+      <div class="activity">
+        <div class="activity-time">9:00 AM</div>
+        <div class="activity-name">Sensoji Temple &amp; Nakamise Street</div>
+        <div class="activity-detail">Tokyo's oldest temple, just steps from your hotel. Walk through the iconic Thunder Gate, browse the 250m Nakamise shopping street for snacks and souvenirs. The kids will love the giant lanterns and incense smoke. Arrive early to beat the crowds!<br>&#128694; <em>2 min walk from hotel</em></div>
+        <div class="activity-tags"><span class="tag free">Free entry</span><span class="tag">2 min walk</span></div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Afternoon</div>
+        <div class="activity-name">&#128104;&#8205;&#128102; Mohan + Anoshan &rarr; Akihabara Electric Town</div>
+        <div class="activity-detail">Tokyo's famous electronics &amp; anime district! Massive arcades (try Sega or Taito), retro game shops, figure stores, Gundam models, and capsule toy machines (gacha) everywhere. Anoshan will love this. Budget 2&ndash;3 hours to explore. Tharini and the little ones can head back to the hotel to rest, or explore Asakusa at their own pace.<br>
+          <strong>Must-visit:</strong> Yodobashi Camera (8 floors of electronics), Radio Kaikan (collectibles), Super Potato (retro games), Sega Akihabara arcade.<br>
+          &#128646; <em>Tsukuba Express from Asakusa &rarr; Akihabara (6 min direct). Return same way.</em></div>
+        <div class="activity-tags">
+          <span class="tag free">Free to explore</span>
+          <span class="tag tip">Anoshan &amp; Dad favourite!</span>
+        </div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Evening</div>
+        <div class="activity-name">Dinner in Asakusa</div>
+        <div class="activity-detail">Try a family-friendly conveyor belt sushi (kaiten-zushi) restaurant. Kids love picking plates off the belt! Asakusa has plenty of options within walking distance.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 3: Apr 7 - DisneySea -->
+  <div class="day-card" id="day-apr7">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:var(--cherry)"><span class="d">7</span><span class="m">Tue</span></div>
+      <div class="day-info">
+        <div class="title">Tokyo DisneySea</div>
+        <div class="desc">Tue &middot; Full day &middot; BOOKED</div>
+      </div>
+      <span class="day-chevron">&#9660;</span>
+    </div>
+    <div class="day-content">
+      <div class="activity">
+        <div class="activity-time">7:00 AM &mdash; Depart Hotel</div>
+        <div class="activity-name">Travel to DisneySea</div>
+        <div class="activity-detail">Asakusa &rarr; Tokyo Stn (subway) &rarr; Maihama (JR Keiyo Line) &rarr; DisneySea (monorail). ~40 min total. Arrive 30 min before park opens for best experience.</div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">8:00 AM &ndash; 9:00 PM</div>
+        <div class="activity-name">Tokyo DisneySea</div>
+        <div class="activity-detail">The world's most unique Disney park! Unlike any other &mdash; nautical themes, stunning architecture, and amazing rides for all ages.</div>
+        <div class="activity-tags">
+          <span class="tag booked">Already Booked</span>
+          <span class="tag">Adults A$79&ndash;109</span>
+          <span class="tag">Age 12-17 A$66&ndash;90</span>
+          <span class="tag">Age 4-11 A$47&ndash;56</span>
+          <span class="tag free">Under 4 Free</span>
+        </div>
+        <a href="https://www.tokyodisneyresort.jp/en/ticket/" target="_blank" class="book-link">Official tickets &#8599;</a><br>
+        <a href="https://www.klook.com/en-US/activity/3234-tokyo-disneysea-1-day-passport/" target="_blank" class="book-link">Klook tickets &#8599;</a>
+      </div>
+      <div class="info-card" style="margin-top:12px">
+        <h3>&#128161; DisneySea Family Tips</h3>
+        <ul>
+          <li><strong>For the 5-year-old:</strong> Mermaid Lagoon area, Scuttle's Scooters, Aquatopia</li>
+          <li><strong>For the 10-year-old:</strong> Toy Story Mania!, 20,000 Leagues, Nemo &amp; Friends</li>
+          <li><strong>For the 13-year-old:</strong> Tower of Terror, Journey to the Center of the Earth, Indiana Jones</li>
+          <li>Download the <strong>Tokyo Disney Resort App</strong> for real-time wait times</li>
+          <li>Consider <strong>Premier Access</strong> (paid fast-pass) for top rides</li>
+          <li>Stroller rental available (~A$15)</li>
+          <li>Eat lunch at <strong>11 AM</strong> to beat crowds</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 4: Apr 8 - Mt Fuji -->
+  <div class="day-card" id="day-apr8">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:var(--cherry)"><span class="d">8</span><span class="m">Wed</span></div>
+      <div class="day-info">
+        <div class="title">Mt Fuji Day Trip</div>
+        <div class="desc">Wed &middot; Full day tour &middot; BOOKED</div>
+      </div>
+      <span class="day-chevron">&#9660;</span>
+    </div>
+    <div class="day-content">
+      <div class="activity">
+        <div class="activity-time">7:00 &ndash; 7:30 AM</div>
+        <div class="activity-name">Depart for Mt Fuji Tour</div>
+        <div class="activity-detail">Most tours depart from Shinjuku or Tokyo Station. Typically includes bus to Mt Fuji area, Lake Kawaguchiko, Oshino Hakkai village, and Chureito Pagoda (iconic cherry blossom &amp; Mt Fuji view). Return by 7-8 PM.<br>&#128646; <em>To Shinjuku pickup: Asakusa Stn &rarr; Kuramae (Asakusa Line) &rarr; transfer toward Shinjuku (~35 min). Check your tour for exact pickup point.</em></div>
+        <div class="activity-tags">
+          <span class="tag booked">Already Booked</span>
+          <span class="tag">~A$120&ndash;150</span>
+          <span class="tag">10&ndash;12 hours</span>
+        </div>
+        <a href="https://www.klook.com/en-US/activity/93901-mtfuji-one-day-tour-tokyo/" target="_blank" class="book-link">Klook Mt Fuji tours &#8599;</a><br>
+        <a href="https://www.getyourguide.com/mount-fuji-l7924/" target="_blank" class="book-link">GetYourGuide tours &#8599;</a>
+      </div>
+      <div class="info-card" style="margin-top:12px">
+        <h3>&#127956;&#65039; Mt Fuji April Tips</h3>
+        <ul>
+          <li>~40% chance of clear views in April &mdash; morning is best</li>
+          <li>5th Station may still be closed due to snow; most tours visit lower viewpoints</li>
+          <li>Chureito Pagoda has cherry blossoms in early-mid April &mdash; stunning!</li>
+          <li>Bring warm layers &mdash; much colder at altitude</li>
+          <li>Pack snacks for the 5-year-old (long day)</li>
+          <li>Book a tour with <strong>free cancellation</strong> in case of bad weather</li>
+        </ul>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Evening (after tour)</div>
+        <div class="activity-name">Pack &amp; Prepare for Kyoto</div>
+        <div class="activity-detail">Tomorrow you have a <strong>relaxed morning</strong> in Tokyo before catching the <strong>3:00 PM Shinkansen</strong> to Kyoto. Normal checkout by 11 AM &mdash; no rush!<br><br>
+          <strong>&#128188; Luggage:</strong> You'll take all your bags with you on the Shinkansen. The Nozomi has overhead luggage racks and space behind the last row of seats. Book last-row seats on SmartEX for easy bag storage.<br>
+          Pack tonight so tomorrow morning is free for one last Tokyo adventure!</div>
+        <div class="activity-tags"><span class="tag tip">Normal checkout by 11 AM</span><span class="tag">Take bags on Shinkansen</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional evening activities for Tokyo days -->
+  <div class="info-card" style="margin-top:8px;">
+    <h3>&#128161; Optional Tokyo Evenings &amp; Last Morning</h3>
+    <p style="margin-bottom:6px;">You have free evenings plus a <strong>free morning on Thu 9th</strong> (checkout by 11 AM, 3 PM train). Great options near Asakusa:</p>
+    <ul>
+      <li><strong>Tokyo Skytree:</strong> Open 10 AM&ndash;9 PM. Just 1 stop from Asakusa (3 min). Stunning views &mdash; perfect for your last Tokyo morning! Adults A$26, under 6 free. <a href="https://www.tokyo-skytree.jp/en/ticket/individual/" target="_blank">Tickets &#8599;</a></li>
+      <li><strong>Hanayashiki Amusement Park:</strong> Japan's oldest amusement park, right behind Sensoji. 19 rides, great for kids. Opens 10 AM. Adults A$16, under 5 free. <a href="https://en.hanayashiki.net/" target="_blank">Info &#8599;</a></li>
+      <li><strong>Hamarikyu Gardens:</strong> Beautiful gardens with matcha tea on a pond. Water bus from Asakusa Pier (~35 min, scenic!). Adults A$3, under 12 free.</li>
+    </ul>
+  </div>
+
+  <div class="info-card" style="margin-top:8px;">
+    <h3>&#128205; More Tokyo Highlights (if time allows)</h3>
+    <p style="margin-bottom:6px;">These aren't in your main schedule but are worth squeezing into a free evening or swapping in if plans change:</p>
+    <ul>
+      <li><strong>Shibuya Crossing &amp; Hachiko Statue:</strong> The world's busiest pedestrian intersection &mdash; thrilling to watch from the Starbucks above or walk through with the crowd. Hachiko's bronze statue (loyal dog) is right outside the station. &#128646; <em>Ginza Line from Asakusa &rarr; Shibuya (~30 min direct).</em></li>
+      <li><strong>Shibuya Sky:</strong> Open-air rooftop observatory (230m) with stunning 360&deg; city views, especially at sunset. Adults ~A$25, children ~A$10. <a href="https://www.shibuya-scramble-square.com/sky/" target="_blank">Tickets &#8599;</a></li>
+      <li><strong>Meiji Jingu Shrine:</strong> A serene, forested Shinto shrine near Yoyogi Park. Walk through the towering torii gate and peaceful gravel paths &mdash; feels like escaping the city. Free entry. &#128646; <em>JR Yamanote Line to Harajuku Station (next to the shrine entrance).</em></li>
+      <li><strong>Harajuku &amp; Takeshita Street:</strong> Colourful teen fashion, quirky themed cafes, cotton candy as tall as the 5-year-old, and crepe shops everywhere. Anoshka will love it! Right next to Meiji Jingu. &#128646; <em>Harajuku Station exit.</em></li>
+      <li><strong>Tsukiji Outer Market:</strong> Fresh seafood, sushi, tamagoyaki (sweet egg), and street food galore. Open mornings (~6 AM&ndash;2 PM). Great for a breakfast/brunch outing. &#128646; <em>Hibiya Line from Ueno or Ginza Line to Tsukiji (~20 min).</em></li>
+      <li><strong>Shinjuku &amp; Golden Gai:</strong> Bustling nightlife district with tiny atmospheric bars in narrow alleys. More of an adult evening option if Tharini &amp; Mohan fancy a night out!</li>
+      <li><strong>teamLab Borderless (Azabudai Hills):</strong> Tokyo's version of the immersive digital art museum. Different artworks from the Kyoto Biovortex &mdash; worth it if the kids can't get enough! Adults ~A$30. <a href="https://www.teamlab.art/e/borderless-azabudai/" target="_blank">Info &#8599;</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== KYOTO ==================== -->
+<div id="kyoto">
+  <div class="city-divider">
+    <div class="emoji">&#9961;&#65039;</div>
+    <div class="label">Kyoto &middot; 4 Nights</div>
+  </div>
+
+  <!-- Day 5: Apr 9 -->
+  <div class="day-card" id="day-apr9">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:var(--kyoto-green)"><span class="d">9</span><span class="m">Thu</span></div>
+      <div class="day-info">
+        <div class="title">Last Tokyo Morning &amp; Kyoto Arrival</div>
+        <div class="desc">Thu &middot; Skytree + Shinkansen + Gion evening</div>
+      </div>
+      <span class="day-chevron">&#9660;</span>
+    </div>
+    <div class="day-content">
+      <div class="activity">
+        <div class="activity-time">10:00 AM &ndash; 12:00 PM</div>
+        <div class="activity-name">Tokyo Skytree (or free time)</div>
+        <div class="activity-detail">Checkout by 11 AM (leave bags at reception if visiting Skytree first). The tallest tower in Japan (634m) with incredible panoramic views of Tokyo &mdash; on a clear day you can see Mt Fuji! The Tembo Deck (350m) and Tembo Galleria (450m) are thrilling for kids.<br>
+          &#128646; <em>From MIMARU: Tobu Skytree Line from Asakusa &rarr; Tokyo Skytree Station (1 stop, 3 min).</em><br>
+          Or use this morning for last-minute shopping, Senso-ji revisit, or simply relax before the train.</div>
+        <div class="activity-tags">
+          <span class="tag">Adults A$26</span>
+          <span class="tag free">Under 6 free</span>
+          <span class="tag">3 min from Asakusa</span>
+        </div>
+        <a href="https://www.tokyo-skytree.jp/en/ticket/individual/" target="_blank" class="book-link">Skytree tickets &#8599;</a>
+      </div>
+      <div class="activity">
+        <div class="activity-time">12:30 PM</div>
+        <div class="activity-name">Lunch &amp; Head to Tokyo Station</div>
+        <div class="activity-detail">Grab lunch near Asakusa or Tokyo Station. Collect your bags and head to the Shinkansen gates.<br>
+          &#128646; <em>Ginza Line: Asakusa &rarr; Kanda (10 min), transfer to JR Yamanote/Chuo Line &rarr; Tokyo Station (3 min). ~20 min total.</em><br>
+          Arrive by 2:30 PM. Browse <strong>ekiben</strong> (train bento boxes) at the station &mdash; the kids will love choosing their own!</div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">3:00 PM</div>
+        <div class="activity-name">Shinkansen: Tokyo &rarr; Kyoto</div>
+        <div class="activity-detail">
+          <strong>&#128347; Timeline:</strong><br>
+          3:00 PM &mdash; Board <strong>Nozomi Shinkansen</strong> (2h 15m)<br>
+          5:15 PM &mdash; Arrive Kyoto Station<br><br>
+          <strong>&#128188; Luggage:</strong> Take all bags on the Shinkansen &mdash; overhead racks plus space behind last-row seats. Book <strong>last-row reserved seats</strong> on SmartEX for easy bag storage.<br>
+          5:30 PM &mdash; Taxi or bus to Village Kyoto (~15 min). Check in (open until midnight).</div>
+        <div class="activity-tags">
+          <span class="tag book-now">Book on SmartEX</span>
+          <span class="tag">Family ~A$400</span>
+          <span class="tag">Bags on train</span>
+        </div>
+        <a href="https://smart-ex.jp/en/" target="_blank" class="book-link">SmartEX booking &#8599;</a>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Evening (6:30 PM)</div>
+        <div class="activity-name">Gion Evening Walk &amp; Dinner</div>
+        <div class="activity-detail">After checking in, explore Kyoto's famous Gion district &mdash; the traditional geisha quarter. Walk along Hanami-koji Lane with its wooden tea houses. You might spot a maiko (apprentice geisha) heading to an appointment! Pontocho alley is a beautiful narrow lane along the river, lined with restaurants &mdash; perfect for your first Kyoto dinner.<br>
+          &#128646; <em>From hotel: Bus #201 to Gion (~15 min) or taxi (~10 min).</em></div>
+        <div class="activity-tags">
+          <span class="tag free">Free to walk</span>
+          <span class="tag tip">Spot a geisha!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 6: Apr 10 -->
+  <div class="day-card" id="day-apr10">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:var(--kyoto-green)"><span class="d">10</span><span class="m">Fri</span></div>
+      <div class="day-info">
+        <div class="title">teamLab Biovortex &amp; Fushimi Inari</div>
+        <div class="desc">Fri &middot; Immersive art + iconic torii gates</div>
+      </div>
+      <span class="day-chevron">&#9660;</span>
+    </div>
+    <div class="day-content">
+      <div class="activity">
+        <div class="activity-time">9:30 AM &ndash; 12:30 PM</div>
+        <div class="activity-name">teamLab Biovortex Kyoto</div>
+        <div class="activity-detail">
+          <strong style="color:#2E7D32">&#9989; BOOKED &mdash; 10th Apr entry</strong><br>
+          teamLab's newest and largest permanent installation (10,000m&sup2;) with 50+ immersive digital artworks. Walk through living ecosystems of light, sound, and movement that react to you. Highlights include the Forest of Resonating Lamps, Massless Suns, and glowing footprint trails. Allow 3&ndash;4 hours &mdash; Anoshka will be mesmerised!<br>
+          &#128694; <em>7 min walk from Kyoto Station Hachijo East Gate. Bus #5 or #101 from hotel area to Kyoto Station first.</em>
+        </div>
+        <div class="activity-tags">
+          <span class="tag booked">Booked</span>
+          <span class="tag">~3&ndash;4 hours</span>
+          <span class="tag tip">Near Kyoto Station!</span>
+        </div>
+        <a href="https://www.teamlab.art/e/kyoto/" target="_blank" class="book-link">teamLab Biovortex official &#8599;</a><br>
+        <a href="https://www.klook.com/en-US/activity/167098-teamlab-kyoto/" target="_blank" class="book-link">Klook tickets &#8599;</a>
+      </div>
+      <div class="activity">
+        <div class="activity-time">12:30 PM</div>
+        <div class="activity-name">Lunch near Kyoto Station</div>
+        <div class="activity-detail">Kyoto Station has excellent food options. Try the <strong>Ramen Koji</strong> (10th floor) &mdash; a ramen street with 8 top shops from across Japan. Or the underground Porta food court for bento, udon, and more.</div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">2:00 PM</div>
+        <div class="activity-name">Fushimi Inari Taisha</div>
+        <div class="activity-detail">Thousands of vermillion torii gates winding up a mountain &mdash; one of Japan's most iconic sights. The lower trails are easy for kids. The full hike is 2&ndash;3 hours but you can turn back anytime. Afternoon means fewer crowds and beautiful light through the gates.<br>&#128646; <em>JR Nara Line from Kyoto Station &rarr; JR Inari Station (2 stops, 5 min). Shrine is right at the station exit.</em></div>
+        <div class="activity-tags">
+          <span class="tag free">Free entry</span>
+          <span class="tag">Open 24/7</span>
+          <span class="tag">5 min from JR Inari Stn</span>
+        </div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Evening</div>
+        <div class="activity-name">Pontocho Alley Dinner</div>
+        <div class="activity-detail">Head to Pontocho &mdash; a narrow, atmospheric lantern-lit alley along the Kamogawa River filled with restaurants. Great for a family dinner &mdash; try river-facing terrace dining (noryo yuka) if it's warm enough!<br>&#128646; <em>From Inari: JR Nara Line back to Kyoto Stn, then Bus #4 or #205 to Shijo-Kawaramachi (~20 min total).</em></div>
+        <div class="activity-tags"><span class="tag tip">Atmospheric dining!</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 7: Apr 11 -->
+  <div class="day-card" id="day-apr11">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:var(--kyoto-green)"><span class="d">11</span><span class="m">Sat</span></div>
+      <div class="day-info">
+        <div class="title">Golden Pavilion, Bamboo &amp; Kimono</div>
+        <div class="desc">Sat &middot; Full day of Kyoto highlights</div>
+      </div>
+      <span class="day-chevron">&#9660;</span>
+    </div>
+    <div class="day-content">
+      <div class="activity">
+        <div class="activity-time">9:00 AM</div>
+        <div class="activity-name">Kinkaku-ji (Golden Pavilion)</div>
+        <div class="activity-detail">A stunning gold-leaf covered temple reflecting in a mirror pond. Arrive right at 9 AM opening to beat the crowds. Quick visit (~45 min) but unforgettable.<br>&#128652; <em>Bus #101 or #205 from Kyoto Station bus terminal (Stand B3) &rarr; Kinkakuji-michi stop (~40 min). English announcements on board.</em></div>
+        <div class="activity-tags">
+          <span class="tag">Adults A$5</span>
+          <span class="tag">Children A$3</span>
+          <span class="tag">Bus #101 or #59</span>
+        </div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">10:30 AM</div>
+        <div class="activity-name">Arashiyama Bamboo Grove</div>
+        <div class="activity-detail">Walk through towering bamboo stalks &mdash; feels like another world. The path is flat and easy for all ages including the 5-year-old in a stroller. Nearby: Togetsukyo Bridge with mountain views.<br>&#128646; <em>From Kinkaku-ji: Bus #59 to Omuro-Ninnaji, then Randen tram to Arashiyama (~40 min). Or taxi (~20 min, ~A$15).</em></div>
+        <div class="activity-tags">
+          <span class="tag free">Free</span>
+          <span class="tag">JR Sagano Line, 30 min</span>
+        </div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">12:30 PM</div>
+        <div class="activity-name">Lunch in Arashiyama</div>
+        <div class="activity-detail">Plenty of family-friendly restaurants near the bamboo grove. Try okonomiyaki (savoury pancake) &mdash; kids love cooking it at the table!</div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">2:30 &ndash; 5:30 PM</div>
+        <div class="activity-name">Kimono Rental Experience</div>
+        <div class="activity-detail">Dress the whole family in kimono and stroll through Higashiyama district! Shops have children's sizes from 85cm up. Walk past Kiyomizu-dera area for beautiful photos with cherry blossoms. Book 2+ weeks in advance for April!<br>&#128646; <em>From Arashiyama: JR Sagano Line to Kyoto Stn, then Bus #206 or #100 to Higashiyama (~45 min total). Or taxi (~30 min).</em></div>
+        <div class="activity-tags">
+          <span class="tag">~A$30&ndash;80</span>
+          <span class="tag book-now">Book 2+ weeks ahead!</span>
+        </div>
+        <a href="https://www.klook.com/activity/1079-one-day-kimono-rental-kyoto/" target="_blank" class="book-link">Klook kimono rental &#8599;</a><br>
+        <a href="https://www.en-kyoto.yumeyakata.com/" target="_blank" class="book-link">Yumeyakata (kids sizes) &#8599;</a><br>
+        <a href="https://www.okamoto-kimono-en.com/kimono/childrensPlan.html" target="_blank" class="book-link">Okamoto (children's plan) &#8599;</a>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Evening</div>
+        <div class="activity-name">Philosopher's Path Sunset Walk</div>
+        <div class="activity-detail">A peaceful 2km canal-side path lined with cherry trees. Less crowded in the evening. Beautiful in the golden hour light.<br>&#128694; <em>From Higashiyama: 15&ndash;20 min walk north, or Bus #5 to Ginkakuji-michi stop (northern end of the path).</em></div>
+        <div class="activity-tags"><span class="tag free">Free</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 8: Apr 12 -->
+  <div class="day-card" id="day-apr12">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:var(--kyoto-green)"><span class="d">12</span><span class="m">Sun</span></div>
+      <div class="day-info">
+        <div class="title">Kiyomizu-dera &amp; Nijo Castle</div>
+        <div class="desc">Sun &middot; Last day in Kyoto</div>
+      </div>
+      <span class="day-chevron">&#9660;</span>
+    </div>
+    <div class="day-content">
+      <div class="activity">
+        <div class="activity-time">8:00 AM</div>
+        <div class="activity-name">Kiyomizu-dera Temple</div>
+        <div class="activity-detail">Famous for its wooden stage jutting out over the hillside with panoramic Kyoto views. The surrounding Higashiyama streets (Sannen-zaka, Ninenzaka) are lined with charming shops, tea houses, and sweet treats.<br>&#128652; <em>Bus #206 or #100 from Kyoto Station &rarr; Gojozaka stop (~15 min), then 10 min walk uphill.</em></div>
+        <div class="activity-tags">
+          <span class="tag">Adults A$5</span>
+          <span class="tag">Children A$2</span>
+          <span class="tag">Bus #100</span>
+        </div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">10:30 AM</div>
+        <div class="activity-name">Nijo Castle</div>
+        <div class="activity-detail">A 400-year-old shogun castle with famous "nightingale floors" that chirp when you walk on them &mdash; designed to detect intruders! Kids find this fascinating. Beautiful gardens too.<br>&#128652; <em>From Kiyomizu-dera: Bus #203 (~25 min) or walk downhill to Gion-Shijo Stn, Hankyu Line to Omiya + walk (~30 min total).</em></div>
+        <div class="activity-tags">
+          <span class="tag">Adults A$8</span>
+          <span class="tag">Children A$3</span>
+          <span class="tag free">Under 6 Free</span>
+        </div>
+        <a href="https://nijo-jocastle.city.kyoto.lg.jp/admission/ticket/?lang=en" target="_blank" class="book-link">Nijo Castle tickets &#8599;</a>
+      </div>
+      <div class="activity">
+        <div class="activity-time">12:30 PM</div>
+        <div class="activity-name">Nishiki Market</div>
+        <div class="activity-detail">Kyoto's "Kitchen" &mdash; a 400m covered market with hundreds of food stalls. Taste matcha treats, mochi, grilled seafood, and more. Great lunch spot for the family &mdash; everyone picks what they like!<br>&#128646; <em>From Nijo Castle: Subway to Shiyakusho-mae Stn (~10 min), exit at Teramachi St and walk to the market.</em></div>
+        <div class="activity-tags"><span class="tag free">Free to enter</span><span class="tag tip">Foodie heaven!</span></div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Afternoon</div>
+        <div class="activity-name">Optional: Cooking Class</div>
+        <div class="activity-detail">Learn to make Japanese dishes like sushi, gyoza, or ramen as a family! The 10 and 13-year-olds will especially enjoy this hands-on experience. Book well in advance.<br>&#128694; <em>Many cooking classes are in central Kyoto near Nishiki Market &mdash; walkable from lunch.</em></div>
+        <div class="activity-tags">
+          <span class="tag">~A$50&ndash;80</span>
+          <span class="tag book-now">Book ahead</span>
+        </div>
+        <a href="https://www.cooking-sun.com/" target="_blank" class="book-link">Cooking Sun Kyoto &#8599;</a>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Evening</div>
+        <div class="activity-name">Pack for Osaka</div>
+        <div class="activity-detail">Prepare for tomorrow's move to Osaka via Nara. Pack tonight &mdash; you'll take bags with you (coin lockers at Nara Station while you explore).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== OSAKA ==================== -->
+<div id="osaka">
+  <div class="city-divider">
+    <div class="emoji">&#127855;</div>
+    <div class="label">Osaka &middot; 4 Nights</div>
+  </div>
+
+  <!-- Day 9: Apr 13 -->
+  <div class="day-card" id="day-apr13">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:var(--osaka-orange)"><span class="d">13</span><span class="m">Mon</span></div>
+      <div class="day-info">
+        <div class="title">Nara Stopover &amp; Osaka Arrival</div>
+        <div class="desc">Mon &middot; Deer Park + Dotonbori evening</div>
+      </div>
+      <span class="day-chevron">&#9660;</span>
+    </div>
+    <div class="day-content">
+      <div class="activity">
+        <div class="activity-time">8:30 AM</div>
+        <div class="activity-name">Checkout &amp; Train to Nara</div>
+        <div class="activity-detail">Checkout Village Kyoto by 11 AM. Head to Kyoto Station and store large bags in <strong>coin lockers</strong> (large: ~A$8, near Shinkansen gates). Then take Kintetsu train to Nara (~30 min, A$13 adult).<br>
+          &#128646; <em>Kintetsu Kyoto Line from Kyoto Station &rarr; Kintetsu Nara Station (~30 min). Nara is directly between Kyoto and Osaka!</em></div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">9:30 AM &ndash; 12:00 PM</div>
+        <div class="activity-name">Nara Park &amp; Deer Feeding</div>
+        <div class="activity-detail">Over 1,000 friendly semi-tame deer roam freely! Buy deer crackers (~A$2) and hand-feed them. Your kids will absolutely love this &mdash; it's one of the most memorable experiences in Japan. The deer bow for crackers!<br>&#128694; <em>10 min walk east from Kintetsu Nara Station</em></div>
+        <div class="activity-tags">
+          <span class="tag free">Park is free</span>
+          <span class="tag">Deer crackers A$2</span>
+          <span class="tag tip">Kids' favourite!</span>
+        </div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">12:00 PM</div>
+        <div class="activity-name">Todai-ji Temple &amp; Lunch</div>
+        <div class="activity-detail">Home to Japan's largest bronze Buddha statue inside one of the world's largest wooden buildings. The scale is jaw-dropping for kids. There's a pillar with a hole the size of the Buddha's nostril &mdash; crawling through is said to bring good luck!<br>Grab lunch at a family restaurant near the park entrance, then head to Osaka.<br>&#128694; <em>10 min walk north through Nara Park from the deer area</em></div>
+        <div class="activity-tags">
+          <span class="tag">Adults A$6</span>
+          <span class="tag">Children A$3</span>
+        </div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">2:00 PM</div>
+        <div class="activity-name">Train: Nara &rarr; Osaka</div>
+        <div class="activity-detail">Kintetsu Nara Line to Osaka-Namba (~35 min, A$10 adult). Then back to Kyoto Station to collect bags? <strong>Better option:</strong> send bags from Kyoto to Osaka via <strong>Takkyubin</strong> at the station before heading to Nara (same-day delivery ~A$20/bag, arrange at Kyoto Station service counter). Then go Nara &rarr; Osaka-Namba direct!<br>
+          &#128646; <em>Kintetsu Nara &rarr; Osaka-Namba (35 min). Midosuji Line from Namba &rarr; Umeda/Osaka Station (10 min) for Westin.</em></div>
+        <div class="activity-tags">
+          <span class="tag tip">Takkyubin bags from Kyoto Stn!</span>
+        </div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">3:30 PM</div>
+        <div class="activity-name">Check into The Westin Osaka</div>
+        <div class="activity-detail">Settle into your hotel near Umeda. Rest and freshen up before heading out for the evening.</div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Afternoon/Evening</div>
+        <div class="activity-name">Osaka Castle &amp; Park</div>
+        <div class="activity-detail">Impressive castle with a museum inside telling the story of Osaka's history. The surrounding park is beautiful in April. The 8-storey tower has panoramic views from the top. Kids under junior high enter free!<br>&#128646; <em>JR Osaka Loop Line from Osaka Station &rarr; Osakajokoen Station (10 min), then 15 min walk through the park to the castle.</em></div>
+        <div class="activity-tags">
+          <span class="tag">Adults A$12</span>
+          <span class="tag free">Under 15 Free</span>
+          <span class="tag">JR Loop Line to Osakajokoen</span>
+        </div>
+        <a href="https://www.osakacastle.net/" target="_blank" class="book-link">Osaka Castle info &#8599;</a>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Evening</div>
+        <div class="activity-name">Dotonbori Street Food</div>
+        <div class="activity-detail">Osaka is Japan's street food capital! Walk along the famous neon-lit canal and try takoyaki (octopus balls), okonomiyaki (savoury pancakes), and gyoza. Kids love the lively atmosphere, giant food signs, and endless tasting.<br>&#128646; <em>From Osaka Castle: Tanimachi Yonchome Stn (Tanimachi Line) &rarr; transfer to Sennichimae Line &rarr; Namba (~20 min). Or from hotel: Midosuji Line Umeda &rarr; Namba (8 min).</em></div>
+        <div class="activity-tags"><span class="tag free">Free to explore</span><span class="tag tip">Osaka's #1 experience!</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 10: Apr 14 - USJ -->
+  <div class="day-card" id="day-apr14">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:var(--cherry)"><span class="d">14</span><span class="m">Tue</span></div>
+      <div class="day-info">
+        <div class="title">Universal Studios Japan</div>
+        <div class="desc">Tue &middot; Full day &middot; BOOKED</div>
+      </div>
+      <span class="day-chevron">&#9660;</span>
+    </div>
+    <div class="day-content">
+      <div class="activity">
+        <div class="activity-time">7:30 AM &mdash; Arrive at Park</div>
+        <div class="activity-name">Universal Studios Japan</div>
+        <div class="activity-detail">Get there 30-45 min before opening! Straight to Super Nintendo World first (timed entry often required). This park has something for everyone &mdash; Harry Potter, Nintendo, Jurassic Park, and a whole kids' area.<br>&#128646; <em>JR Osaka Loop Line from Osaka Station &rarr; Nishikujo (5 min), transfer to JR Yumesaki Line &rarr; Universal-city Station (2 stops). ~20 min total, then 5 min walk to gates.</em></div>
+        <div class="activity-tags">
+          <span class="tag booked">Already Booked</span>
+          <span class="tag">Adults A$93&ndash;154</span>
+          <span class="tag">Kids 4-11 A$61&ndash;101</span>
+          <span class="tag free">Under 4 Free</span>
+        </div>
+        <a href="https://www.usj.co.jp/web/en/us/" target="_blank" class="book-link">USJ Official &#8599;</a><br>
+        <a href="https://www.klook.com/en-US/activity/46604-universal-studios-japan-e-ticket-osaka-qr-code-direct-entry/" target="_blank" class="book-link">Klook tickets &#8599;</a>
+      </div>
+      <div class="info-card" style="margin-top:12px">
+        <h3>&#127918; USJ Family Strategy</h3>
+        <ul>
+          <li><strong>Super Nintendo World:</strong> Go first thing! Mario Kart ride is the highlight. Get wristband from Klook for Power-Up Band experience.</li>
+          <li><strong>For the 5-year-old:</strong> Universal Wonderland area &mdash; Sesame Street, Hello Kitty, Snoopy rides</li>
+          <li><strong>For the 10-year-old:</strong> Harry Potter &amp; the Forbidden Journey, Jaws, Minion Park</li>
+          <li><strong>For the 13-year-old:</strong> Hollywood Dream roller coaster, Jurassic World, Mario Kart</li>
+          <li><strong>Express Pass:</strong> Consider Express Pass 4 (A$68&ndash;168) to skip queues &mdash; worth it with young kids who struggle with long waits</li>
+          <li><strong>Height check:</strong> Some rides require 102cm+ or 122cm+ &mdash; check your 5-year-old's height</li>
+          <li><strong>Lunch at 11 AM</strong> to avoid peak crowds</li>
+          <li>Download the <strong>official USJ app</strong> for wait times</li>
+        </ul>
+        <a href="https://www.klook.com/en-US/activity/3407-universal-studios-japan-express-pass-osaka/" target="_blank" class="book-link">Express Pass on Klook &#8599;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 11: Apr 15 - Photoshoot -->
+  <div class="day-card" id="day-apr15">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:var(--cherry)"><span class="d">15</span><span class="m">Wed</span></div>
+      <div class="day-info">
+        <div class="title">Photoshoot &amp; Aquarium</div>
+        <div class="desc">Wed &middot; Kimono photos + Kaiyukan &middot; BOOKED</div>
+      </div>
+      <span class="day-chevron">&#9660;</span>
+    </div>
+    <div class="day-content">
+      <div class="activity">
+        <div class="activity-time">9:00 &ndash; 11:30 AM</div>
+        <div class="activity-name">Family Kimono Photoshoot</div>
+        <div class="activity-detail">Professional photographer captures your family in kimono at scenic locations. Most services include kimono rental, dressing, professional photos, and editing. A beautiful keepsake of your trip!<br>&#128646; <em>Check with your photographer for the meeting point &mdash; most Osaka photoshoot studios are in Namba/Shinsaibashi area (Midosuji Line from Umeda, 8 min).</em></div>
+        <div class="activity-tags">
+          <span class="tag booked">Already Booked</span>
+          <span class="tag">~A$150&ndash;350</span>
+        </div>
+        <a href="https://kyotokimonorental.com/en/shop/28/photoshoot" target="_blank" class="book-link">Wargo Osaka photoshoot &#8599;</a><br>
+        <a href="https://www.klook.com/en-US/activity/104844-kimono-rental-and-photoshoot-by-ouka-kimono-osaka/" target="_blank" class="book-link">Ouka Kimono on Klook &#8599;</a>
+      </div>
+      <div class="activity">
+        <div class="activity-time">1:30 &ndash; 4:30 PM</div>
+        <div class="activity-name">Osaka Aquarium Kaiyukan</div>
+        <div class="activity-detail">One of the world's largest aquariums! Walk through a spectacular spiral descent around a massive central tank with whale sharks. Jellyfish galleries, touch pools, penguins, and a rainforest zone. Perfect for your 5-year-old after yesterday's big USJ day.<br>&#128646; <em>JR Osaka Loop Line to Bentencho, transfer to Osaka Metro Chuo Line &rarr; Osakako Station (~35 min). 5 min walk to aquarium.</em></div>
+        <div class="activity-tags">
+          <span class="tag">Adults A$27</span>
+          <span class="tag">Age 7-15 A$14</span>
+          <span class="tag">Age 4-6 A$7</span>
+          <span class="tag free">Under 4 Free</span>
+        </div>
+        <a href="https://www.klook.com/en-US/activity/598-osaka-aquarium-kaiyukan-japan/" target="_blank" class="book-link">Klook tickets &#8599;</a><br>
+        <a href="https://www.kaiyukan.com/language/eng/" target="_blank" class="book-link">Official Kaiyukan &#8599;</a>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Evening</div>
+        <div class="activity-name">Tempozan Ferris Wheel &amp; Dinner</div>
+        <div class="activity-detail">Right next to the aquarium! The giant Ferris wheel offers harbour views. Then head to nearby Tempozan Marketplace for dinner, or back to Dotonbori for a farewell feast.<br>&#128694; <em>5 min walk from the aquarium &mdash; same Tempozan Harbor Village area.</em></div>
+        <div class="activity-tags">
+          <span class="tag">Ferris wheel ~A$8</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 12: Apr 16 - Free Day -->
+  <div class="day-card" id="day-apr16">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:var(--osaka-orange)"><span class="d">16</span><span class="m">Thu</span></div>
+      <div class="day-info">
+        <div class="title">Free Day &amp; Last Explore</div>
+        <div class="desc">Thu &middot; Bonus day! Explore at your own pace</div>
+      </div>
+      <span class="day-chevron">&#9660;</span>
+    </div>
+    <div class="day-content">
+      <div class="activity">
+        <div class="activity-time">Morning</div>
+        <div class="activity-name">Umeda Sky Building</div>
+        <div class="activity-detail">Futuristic floating garden observatory on the 40th floor with 360&deg; panoramic views of Osaka. The escalator ride up through the glass tube is thrilling for kids! The basement floor has a retro Showa-era food alley for breakfast.<br>&#128694; <em>5&ndash;10 min walk from the Westin through the garden path.</em></div>
+        <div class="activity-tags">
+          <span class="tag">Adults A$15</span>
+          <span class="tag">Age 4-12 A$7</span>
+          <span class="tag free">Under 4 Free</span>
+        </div>
+        <a href="https://www.kuchu-teien.com/en/" target="_blank" class="book-link">Umeda Sky Building &#8599;</a>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Afternoon</div>
+        <div class="activity-name">Namba &amp; Shinsaibashi Shopping</div>
+        <div class="activity-detail">Last chance for souvenirs! Don Quijote (open 24hrs, tax-free for tourists) has everything &mdash; don't forget Kit-Kats in Japanese flavours! Shinsaibashi-suji is Osaka's main shopping arcade, over 600m of covered stores. Perfect for rainy-day shopping too.<br>&#128646; <em>Midosuji Line from Umeda &rarr; Namba (8 min)</em></div>
+        <div class="activity-tags"><span class="tag free">Free to explore</span><span class="tag tip">Souvenir shopping!</span></div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">Evening</div>
+        <div class="activity-name">Farewell Dotonbori Dinner</div>
+        <div class="activity-detail">One last round of Osaka street food! Try anything you missed &mdash; kushikatsu (deep-fried skewers), takoyaki, or a family yakiniku (BBQ) dinner. Soak in the neon lights one last time.<br>&#128694; <em>Walk from Shinsaibashi to Dotonbori (5 min south along the canal)</em></div>
+        <div class="activity-tags"><span class="tag tip">Osaka food farewell!</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 13: Apr 17 - Departure -->
+  <div class="day-card" id="day-apr17">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:var(--osaka-orange)"><span class="d">17</span><span class="m">Fri</span></div>
+      <div class="day-info">
+        <div class="title">Departure Day</div>
+        <div class="desc">Fri &middot; Checkout &amp; fly home</div>
+      </div>
+      <span class="day-chevron">&#9660;</span>
+    </div>
+    <div class="day-content">
+      <div class="activity">
+        <div class="activity-time">9:00 &ndash; 10:00 AM</div>
+        <div class="activity-name">Relaxed Breakfast &amp; Checkout</div>
+        <div class="activity-detail">Enjoy a final breakfast at the Westin (famous buffet!). Checkout by 11 AM. Double-check you have all passports, chargers, and souvenirs. Leave large bags at the hotel bell desk if heading out briefly.</div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">11:30 AM</div>
+        <div class="activity-name">Check out &amp; Head to Station</div>
+        <div class="activity-detail">Leave hotel with plenty of time. Head to Namba Station for the Nankai Rapi:t train to Kansai Airport.<br>&#128646; <em>Midosuji Line from Umeda &rarr; Namba Station (8 min). Follow signs to Nankai Railway inside Namba Station.</em></div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">12:15 PM</div>
+        <div class="activity-name">Nankai Rapi:t to Kansai Airport</div>
+        <div class="activity-detail">Stylish express train, 35 min from Namba to KIX. Reserved seats &mdash; comfortable for the family. Arrive KIX by 12:50 PM, giving you 3 hours before your 3:50 PM flight.</div>
+        <div class="activity-tags">
+          <span class="tag">~A$15</span>
+          <span class="tag book-now">Book at station</span>
+        </div>
+      </div>
+      <div class="activity">
+        <div class="activity-time">3:50 PM</div>
+        <div class="activity-name">Flight KIX &rarr; Singapore &rarr; Melbourne</div>
+        <div class="activity-detail">TR 821 to Singapore (6h 35m), then 5h layover, then TR 58 to Melbourne arriving 11:45 AM on Sat 18th. Safe travels home!</div>
+        <div class="activity-tags"><span class="tag">Scoot YHK82E</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== HOTELS ==================== -->
+<div id="hotels">
+  <div class="section-header">
+    <span class="icon">&#127968;</span>
+    <h2>Hotels &amp; Alternatives</h2>
+  </div>
+
+  <p style="font-size:13px;color:var(--text-light);margin-bottom:16px;">Your current bookings plus cheaper alternatives with similar family-friendly features. All alternatives have free cancellation options &mdash; worth booking as backup while you compare.</p>
+
+  <!-- Tokyo Hotels -->
+  <h3 style="font-size:14px;color:var(--tokyo-blue);margin:16px 0 10px;">&#127751; Tokyo &middot; 5 nights (Sat 4 &ndash; Thu 9)</h3>
+
+  <div class="hotel-card current">
+    <div class="hotel-label cur">Your Current Booking</div>
+    <div class="hotel-name">MIMARU Tokyo Asakusa Station</div>
+    <div class="hotel-price">~A$250&ndash;350/night</div>
+    <div class="hotel-features">Family Apartment &bull; Check-in: Sat 4 (3&ndash;10 PM) &bull; Check-out: Thu 9 (7&ndash;11 AM)<br>2 adults + 3 children (5, 10, 13) &bull; Kaminarimon 2-20-4, Taito-ku<br>Apartment-style, full kitchen, sleeps 5-6, coin laundry, 1 min to Asakusa Station.</div>
+    <a href="https://www.booking.com/hotel/jp/mimaru-tokyo-asakusa-station.html" target="_blank" class="book-link">View on Booking.com &#8599;</a>
+  </div>
+
+  <div class="hotel-card alt">
+    <div class="hotel-label sug">Cheaper Alternative</div>
+    <div class="hotel-name">MONday Apart Premium Asakusa</div>
+    <div class="hotel-price">~A$180&ndash;280 (save ~20%)</div>
+    <div class="hotel-features">Kitchen, washing machine, balcony. Near Kappabashi-dori. Similar apartment style to MIMARU.</div>
+    <a href="https://www.booking.com/hotel/jp/monday-apart-premium-qian-cao.html" target="_blank" class="book-link">View on Booking.com &#8599;</a>
+  </div>
+
+  <div class="hotel-card alt">
+    <div class="hotel-label sug">Budget Alternative</div>
+    <div class="hotel-name">Hotel Residence Asakusa by Unito</div>
+    <div class="hotel-price">~A$80&ndash;120 (save ~60%)</div>
+    <div class="hotel-features">Full kitchen, family rooms, great budget option. Basic but functional for a family of 5.</div>
+    <a href="https://www.booking.com/hotel/jp/residence-asakusa-by-unito.html" target="_blank" class="book-link">View on Booking.com &#8599;</a>
+  </div>
+
+  <!-- Kyoto Hotels -->
+  <h3 style="font-size:14px;color:var(--kyoto-green);margin:20px 0 10px;">&#9961;&#65039; Kyoto &middot; 4 nights (Thu 9 &ndash; Mon 13)</h3>
+
+  <div class="hotel-card current">
+    <div class="hotel-label cur">Your Current Booking</div>
+    <div class="hotel-name">Village Kyoto</div>
+    <div class="hotel-price">~A$100&ndash;120/night</div>
+    <div class="hotel-features">Run of House (5 adults room) &bull; Check-in: Thu 9 (3 PM&ndash;12 AM) &bull; Check-out: Mon 13 (by 11 AM)<br>2 adults + 3 children &bull; Nakagyo-ku, Mibu-Bojo-cho 5<br>Japanese-Western rooms for up to 6 guests. Central location.</div>
+    <a href="https://www.booking.com/hotel/jp/village-kyoto.html" target="_blank" class="book-link">View on Booking.com &#8599;</a>
+  </div>
+
+  <div class="hotel-card alt">
+    <div class="hotel-label sug">Better Facilities Alternative</div>
+    <div class="hotel-name">MIMARU Kyoto Station</div>
+    <div class="hotel-price">~A$150&ndash;250</div>
+    <div class="hotel-features">Full kitchen, bunk beds, family rooms, free cribs. Right at Kyoto Station &mdash; super convenient for day trips. Slightly pricier but much better for families.</div>
+    <a href="https://www.booking.com/hotel/jp/mimaru-jing-du-station.html" target="_blank" class="book-link">View on Booking.com &#8599;</a>
+  </div>
+
+  <div class="hotel-card alt">
+    <div class="hotel-label sug">Budget Alternative</div>
+    <div class="hotel-name">Minn Nijo-Jo Kyoto</div>
+    <div class="hotel-price">~A$80&ndash;150</div>
+    <div class="hotel-features">Aparthotel near Nijo Castle. Family amenities, serviced apartment style. Good central location.</div>
+    <a href="https://www.booking.com/hotel/jp/minn-nijo-jo.html" target="_blank" class="book-link">Search on Booking.com &#8599;</a>
+  </div>
+
+  <!-- Osaka Hotels -->
+  <h3 style="font-size:14px;color:var(--osaka-orange);margin:20px 0 10px;">&#127855; Osaka &middot; 4 nights (Mon 13 &ndash; Fri 17) <em style="font-weight:normal;font-size:12px">(checkout for flight)</em></h3>
+
+  <div class="hotel-card current">
+    <div class="hotel-label cur">Your Current Booking</div>
+    <div class="hotel-name">The Westin Osaka</div>
+    <div class="hotel-price">~A$200&ndash;300/night</div>
+    <div class="hotel-features">Check-in: Mon 13 &bull; Check-out: Fri 17 &bull; 4 nights<br>2 adults + 3 children &bull; Umeda area, near Osaka Station<br>Luxury hotel, Marriott property, family rooms, excellent breakfast buffet (A$51 adult, A$25 child).</div>
+    <a href="https://www.booking.com/hotel/jp/westin-osaka.html" target="_blank" class="book-link">View on Booking.com &#8599;</a>
+  </div>
+
+  <div class="hotel-card alt">
+    <div class="hotel-label sug">Cheaper + Kitchen Alternative</div>
+    <div class="hotel-name">MIMARU Osaka Namba North</div>
+    <div class="hotel-price">~A$150&ndash;220 (save ~25%)</div>
+    <div class="hotel-features">Full kitchen, bunk beds, 5 min walk to Dotonbori, game room/arcade for kids. Under 7 stays free. Better location for street food &amp; nightlife.</div>
+    <a href="https://www.booking.com/hotel/jp/mimaru-osaka-namba-north.html" target="_blank" class="book-link">View on Booking.com &#8599;</a>
+  </div>
+
+  <div class="hotel-card alt">
+    <div class="hotel-label sug">Budget Alternative</div>
+    <div class="hotel-name">Namba Oriental Hotel</div>
+    <div class="hotel-price">~A$120&ndash;180 (save ~40%)</div>
+    <div class="hotel-features">Apartment suites with kitchenette, washing machine. Sleeps 6. Near Namba Station. Under 6 stays free.</div>
+    <a href="https://www.booking.com/hotel/jp/namba-oriental.html" target="_blank" class="book-link">View on Booking.com &#8599;</a>
+  </div>
+</div>
+
+<!-- ==================== BUDGET ==================== -->
+<div id="budget">
+  <div class="section-header">
+    <span class="icon">&#128176;</span>
+    <h2>Estimated Budget</h2>
+  </div>
+
+  <div class="info-card">
+    <p style="margin-bottom:12px;">Estimates for family of 5 (2 adults + 13yo + 10yo + 5yo). All prices in AUD (approximate, at ~&yen;100 = A$1).</p>
+
+    <table class="budget-table">
+      <thead>
+        <tr><th>Category</th><th>Est. Cost (AUD)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="3" style="font-weight:700;padding-top:12px;">Transport</td></tr>
+        <tr><td>Haneda &rarr; Asakusa (taxi) &#9989;</td><td>$120</td></tr>
+        <tr><td>Welcome Suica cards &times; 4</td><td>$40</td></tr>
+        <tr><td>Tokyo &rarr; Kyoto (Shinkansen Nozomi)</td><td>$400</td></tr>
+        <tr><td>Kyoto &rarr; Osaka (JR Rapid)</td><td>$30</td></tr>
+        <tr><td>Osaka &rarr; KIX (Rapi:t)</td><td>$75</td></tr>
+        <tr><td>Local transit (13 days)</td><td>$300</td></tr>
+
+        <tr><td colspan="3" style="font-weight:700;padding-top:12px;">Attractions</td></tr>
+        <tr><td>Tokyo Skytree</td><td>$83</td></tr>
+        <tr><td>teamLab Biovortex Kyoto &#9989;</td><td>$120</td></tr>
+        <tr><td>DisneySea (5 tickets)</td><td>$350&ndash;450</td></tr>
+        <tr><td>Mt Fuji tour (5 people)</td><td>$500&ndash;750</td></tr>
+        <tr><td>Kimono rental (family)</td><td>$200&ndash;400</td></tr>
+        <tr><td>Nara (Todai-ji)</td><td>$24</td></tr>
+        <tr><td>Kyoto temples &amp; castle</td><td>$50</td></tr>
+        <tr><td>USJ tickets (5 people)</td><td>$500&ndash;750</td></tr>
+        <tr><td>USJ Express Pass (optional)</td><td>$350&ndash;850</td></tr>
+        <tr><td>Photoshoot</td><td>$200&ndash;350</td></tr>
+        <tr><td>Osaka Aquarium Kaiyukan</td><td>$90</td></tr>
+        <tr><td>Osaka Castle</td><td>$24</td></tr>
+
+        <tr><td colspan="3" style="font-weight:700;padding-top:12px;">Accommodation (current bookings)</td></tr>
+        <tr><td>MIMARU Asakusa (5 nights)</td><td>$1,250&ndash;1,750</td></tr>
+        <tr><td>Village Kyoto (4 nights)</td><td>$400&ndash;480</td></tr>
+        <tr><td>Westin Osaka (4 nights)</td><td>$800&ndash;1,200</td></tr>
+
+        <tr><td colspan="3" style="font-weight:700;padding-top:12px;">Food &amp; Misc</td></tr>
+        <tr><td>Meals (13 days, family of 5)</td><td>$2,000&ndash;3,000</td></tr>
+        <tr><td>Souvenirs &amp; misc</td><td>$300&ndash;500</td></tr>
+
+        <tr class="total">
+          <td>Estimated Total</td>
+          <td>$8,200&ndash;13,300</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px;font-size:12px;">Note: Does not include flights (already booked). Accommodation tax (~A$1&ndash;3/person/night) not included. Prices are estimates based on current rates and may vary.</p>
+  </div>
+</div>
+
+<!-- ==================== BOOKING CHECKLIST ==================== -->
+<div id="checklist">
+  <div class="section-header">
+    <span class="icon">&#9989;</span>
+    <h2>Booking Checklist</h2>
+  </div>
+
+  <div class="info-card">
+    <h3>&#128680; Book NOW (April is peak season!)</h3>
+    <div class="checklist-item"><input type="checkbox" checked><span><strong>Private taxi</strong> Haneda &rarr; Asakusa &#9989; BOOKED &mdash; Klook Ref: MSV067447 &bull; Relax Airport Taxi</span></div>
+    <div class="checklist-item"><input type="checkbox"><span><strong>Shinkansen reserved seats</strong> Tokyo &rarr; Kyoto via <a href="https://smart-ex.jp/en/" target="_blank">SmartEX</a></span></div>
+    <div class="checklist-item"><input type="checkbox"><span><strong>DisneySea tickets</strong> via <a href="https://www.tokyodisneyresort.jp/en/ticket/" target="_blank">Official site</a> or <a href="https://www.klook.com/en-US/activity/3234-tokyo-disneysea-1-day-passport/" target="_blank">Klook</a></span></div>
+    <div class="checklist-item"><input type="checkbox"><span><strong>Mt Fuji day tour</strong> via <a href="https://www.klook.com/en-US/activity/93901-mtfuji-one-day-tour-tokyo/" target="_blank">Klook</a> or <a href="https://www.getyourguide.com/mount-fuji-l7924/" target="_blank">GetYourGuide</a></span></div>
+    <div class="checklist-item"><input type="checkbox" checked><span><strong>teamLab Biovortex Kyoto tickets</strong> &#9989; BOOKED &mdash; 10 Apr (Fri) via <a href="https://www.teamlab.art/e/kyoto/" target="_blank">Official</a></span></div>
+    <div class="checklist-item"><input type="checkbox"><span><strong>Kimono rental</strong> in Kyoto via <a href="https://www.klook.com/activity/1079-one-day-kimono-rental-kyoto/" target="_blank">Klook</a> or <a href="https://www.en-kyoto.yumeyakata.com/" target="_blank">Yumeyakata</a></span></div>
+    <div class="checklist-item"><input type="checkbox"><span><strong>USJ tickets + Express Pass</strong> via <a href="https://www.klook.com/en-US/activity/46604-universal-studios-japan-e-ticket-osaka-qr-code-direct-entry/" target="_blank">Klook</a> or <a href="https://www.usj.co.jp/web/en/us/" target="_blank">Official</a></span></div>
+    <div class="checklist-item"><input type="checkbox"><span><strong>Photoshoot service</strong> via <a href="https://www.klook.com/en-US/activity/104844-kimono-rental-and-photoshoot-by-ouka-kimono-osaka/" target="_blank">Klook</a> or <a href="https://kyotokimonorental.com/en/shop/28/photoshoot" target="_blank">Wargo</a></span></div>
+  </div>
+
+  <div class="info-card">
+    <h3>&#128203; Book 2-4 Weeks Before</h3>
+    <div class="checklist-item"><input type="checkbox"><span><strong>Cooking class</strong> in Kyoto via <a href="https://www.cooking-sun.com/" target="_blank">Cooking Sun</a></span></div>
+    <div class="checklist-item"><input type="checkbox"><span><strong>Osaka Aquarium Kaiyukan</strong> via <a href="https://www.klook.com/en-US/activity/598-osaka-aquarium-kaiyukan-japan/" target="_blank">Klook</a></span></div>
+    <div class="checklist-item"><input type="checkbox"><span>Compare <strong>hotel alternatives</strong> and decide if switching</span></div>
+    <div class="checklist-item"><input type="checkbox"><span><strong>Travel insurance</strong> for family of 5</span></div>
+    <div class="checklist-item"><input type="checkbox"><span><strong>Pocket WiFi / eSIM</strong> for Japan (<a href="https://www.klook.com/en-US/activity/5410-4g-wifi-japan/" target="_blank">Klook WiFi</a>)</span></div>
+  </div>
+
+  <div class="info-card">
+    <h3>&#128092; Before You Go</h3>
+    <div class="checklist-item"><input type="checkbox"><span>Download: <strong>Google Maps</strong> (offline Japan maps), <strong>SmartEX</strong>, <strong>Suica app</strong></span></div>
+    <div class="checklist-item"><input type="checkbox"><span>Download: <strong>Tokyo Disney Resort app</strong>, <strong>USJ app</strong></span></div>
+    <div class="checklist-item"><input type="checkbox"><span>Check <strong>passport validity</strong> (6+ months) for all 5 members</span></div>
+    <div class="checklist-item"><input type="checkbox"><span>Check if <strong>visa</strong> required (Australian passports: 90-day visa-free entry to Japan)</span></div>
+    <div class="checklist-item"><input type="checkbox"><span>Pack: <strong>light rain jackets</strong>, layers, comfortable walking shoes</span></div>
+    <div class="checklist-item"><input type="checkbox"><span>Notify bank of <strong>Japan travel</strong> for card payments</span></div>
+    <div class="checklist-item"><input type="checkbox"><span><strong>Web check-in</strong> Scoot (opens 48h before: <a href="https://checkin.flyscoot.com" target="_blank">checkin.flyscoot.com</a>)</span></div>
+  </div>
+</div>
+
+<footer>
+  &#127800; Shanmugarajah Family &middot; Japan 2026 &#127800;<br>
+  <span style="font-size:11px;opacity:0.6;">Last updated: March 2026 &middot; Prices are estimates and may vary</span>
+</footer>
+
+</div><!-- end container -->
+
+<script>
+function toggleDay(header) {
+  const card = header.parentElement;
+  card.classList.toggle('open');
+}
+
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Update active tab
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// Intersection Observer for nav highlighting
+const sections = ['flights','transport','tokyo','kyoto','osaka','hotels','budget','checklist'];
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      document.querySelectorAll('.nav-tab').forEach(t => {
+        t.classList.toggle('active', t.textContent.toLowerCase().includes(id.substring(0,4)));
+      });
+    }
+  });
+}, { threshold: 0.2 });
+
+sections.forEach(id => {
+  const el = document.getElementById(id);
+  if (el) observer.observe(el);
+});
+
+// Save checkbox state to memory (in-page only)
+const checkboxState = {};
+document.addEventListener('change', (e) => {
+  if (e.target.type === 'checkbox') {
+    const idx = Array.from(document.querySelectorAll('input[type=checkbox]')).indexOf(e.target);
+    checkboxState[idx] = e.target.checked;
+  }
+});
+</script>
+</body>
+</html>
