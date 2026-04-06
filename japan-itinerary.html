@@ -179,6 +179,51 @@
   .tag.book-now { background: #FFF3E0; color: #E65100; }
   .tag.tip { background: #FFF0F3; color: var(--cherry-dark); }
 
+  /* Weather strip */
+  .weather-strip {
+    background: linear-gradient(135deg, #e8f4fd 0%, #f0f7ff 100%);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    border: 1px solid #d4e8f7;
+  }
+  .weather-strip .ws-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: #4a6d8a;
+    font-weight: 600;
+  }
+  .weather-strip .ws-temps {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .weather-strip .ws-temps::-webkit-scrollbar { display: none; }
+  .weather-strip .ws-cell {
+    flex: 1;
+    min-width: 42px;
+    text-align: center;
+    padding: 4px 2px;
+  }
+  .weather-strip .ws-time {
+    font-size: 10px;
+    color: #7a9ab5;
+    font-weight: 600;
+  }
+  .weather-strip .ws-temp {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2D5F8A;
+  }
+  .weather-strip .ws-peak .ws-temp {
+    color: #C4506A;
+  }
+
   /* Booking link */
   .book-link {
     display: inline-flex;
@@ -569,6 +614,10 @@
       <span class="day-chevron">&#9660;</span>
     </div>
     <div class="day-content">
+      <div class="weather-strip">
+        <div class="ws-header"><span>&#9728;&#65039; Tokyo &mdash; Sunrise 5:22 AM &bull; Sunset 6:05 PM</span><span>&#176;C</span></div>
+        <div class="ws-temps"><div class="ws-cell"><div class="ws-time">6AM</div><div class="ws-temp">13&deg;</div></div><div class="ws-cell"><div class="ws-time">8AM</div><div class="ws-temp">15&deg;</div></div><div class="ws-cell"><div class="ws-time">10AM</div><div class="ws-temp">19&deg;</div></div><div class="ws-cell"><div class="ws-time">12PM</div><div class="ws-temp">22&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">2PM</div><div class="ws-temp">23&deg;</div></div><div class="ws-cell"><div class="ws-time">4PM</div><div class="ws-temp">22&deg;</div></div><div class="ws-cell"><div class="ws-time">6PM</div><div class="ws-temp">20&deg;</div></div></div>
+      </div>
       <div class="activity">
         <div class="activity-time">1:05 AM &mdash; Arrival &amp; Pickup</div>
         <div class="activity-name">Arrive Tokyo Haneda (Terminal 3) &rarr; Private Taxi to Asakusa</div>
@@ -624,6 +673,10 @@
       <span class="day-chevron">&#9660;</span>
     </div>
     <div class="day-content">
+      <div class="weather-strip">
+        <div class="ws-header"><span>&#9728;&#65039; Tokyo &mdash; Sunrise 5:21 AM &bull; Sunset 6:06 PM</span><span>&#176;C</span></div>
+        <div class="ws-temps"><div class="ws-cell"><div class="ws-time">6AM</div><div class="ws-temp">13&deg;</div></div><div class="ws-cell"><div class="ws-time">8AM</div><div class="ws-temp">16&deg;</div></div><div class="ws-cell"><div class="ws-time">10AM</div><div class="ws-temp">19&deg;</div></div><div class="ws-cell"><div class="ws-time">12PM</div><div class="ws-temp">22&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">2PM</div><div class="ws-temp">23&deg;</div></div><div class="ws-cell"><div class="ws-time">4PM</div><div class="ws-temp">22&deg;</div></div><div class="ws-cell"><div class="ws-time">6PM</div><div class="ws-temp">20&deg;</div></div></div>
+      </div>
       <div class="activity">
         <div class="activity-time">9:00 AM</div>
         <div class="activity-name">Sensoji Temple &amp; Nakamise Street</div>
@@ -660,6 +713,10 @@
       <span class="day-chevron">&#9660;</span>
     </div>
     <div class="day-content">
+      <div class="weather-strip">
+        <div class="ws-header"><span>&#9728;&#65039; Tokyo &mdash; Sunrise 5:19 AM &bull; Sunset 6:07 PM</span><span>&#176;C</span></div>
+        <div class="ws-temps"><div class="ws-cell"><div class="ws-time">6AM</div><div class="ws-temp">15&deg;</div></div><div class="ws-cell"><div class="ws-time">8AM</div><div class="ws-temp">15&deg;</div></div><div class="ws-cell"><div class="ws-time">10AM</div><div class="ws-temp">15&deg;</div></div><div class="ws-cell"><div class="ws-time">12PM</div><div class="ws-temp">14&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">2PM</div><div class="ws-temp">15&deg;</div></div><div class="ws-cell"><div class="ws-time">4PM</div><div class="ws-temp">14&deg;</div></div><div class="ws-cell"><div class="ws-time">6PM</div><div class="ws-temp">13&deg;</div></div></div>
+      </div>
       <div class="activity">
         <div class="activity-time">7:00 AM &mdash; Depart Hotel</div>
         <div class="activity-name">Travel to DisneySea</div>
@@ -705,6 +762,10 @@
       <span class="day-chevron">&#9660;</span>
     </div>
     <div class="day-content">
+      <div class="weather-strip">
+        <div class="ws-header"><span>&#9728;&#65039; Tokyo &mdash; Sunrise 5:18 AM &bull; Sunset 6:08 PM</span><span>&#176;C</span></div>
+        <div class="ws-temps"><div class="ws-cell"><div class="ws-time">6AM</div><div class="ws-temp">6&deg;</div></div><div class="ws-cell"><div class="ws-time">8AM</div><div class="ws-temp">10&deg;</div></div><div class="ws-cell"><div class="ws-time">10AM</div><div class="ws-temp">13&deg;</div></div><div class="ws-cell"><div class="ws-time">12PM</div><div class="ws-temp">16&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">2PM</div><div class="ws-temp">17&deg;</div></div><div class="ws-cell"><div class="ws-time">4PM</div><div class="ws-temp">16&deg;</div></div><div class="ws-cell"><div class="ws-time">6PM</div><div class="ws-temp">13&deg;</div></div></div>
+      </div>
       <div class="activity">
         <div class="activity-time">7:00 &ndash; 7:30 AM</div>
         <div class="activity-name">Depart for Mt Fuji Tour</div>
@@ -783,6 +844,10 @@
       <span class="day-chevron">&#9660;</span>
     </div>
     <div class="day-content">
+      <div class="weather-strip">
+        <div class="ws-header"><span>&#9728;&#65039; Tokyo &rarr; Kyoto &mdash; Sunrise 5:17 AM &bull; Sunset 6:09 PM</span><span>&#176;C</span></div>
+        <div class="ws-temps"><div class="ws-cell"><div class="ws-time">6AM</div><div class="ws-temp">9&deg;</div></div><div class="ws-cell"><div class="ws-time">8AM</div><div class="ws-temp">13&deg;</div></div><div class="ws-cell"><div class="ws-time">10AM</div><div class="ws-temp">17&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">12PM</div><div class="ws-temp">18&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">2PM</div><div class="ws-temp">18&deg;</div></div><div class="ws-cell"><div class="ws-time">4PM</div><div class="ws-temp">17&deg;</div></div><div class="ws-cell"><div class="ws-time">6PM</div><div class="ws-temp">15&deg;</div></div></div>
+      </div>
       <div class="activity">
         <div class="activity-time">10:00 AM &ndash; 12:00 PM</div>
         <div class="activity-name">Tokyo Skytree (or free time)</div>
@@ -843,6 +908,10 @@
       <span class="day-chevron">&#9660;</span>
     </div>
     <div class="day-content">
+      <div class="weather-strip">
+        <div class="ws-header"><span>&#9728;&#65039; Kyoto &mdash; Sunrise 5:31 AM &bull; Sunset 6:24 PM</span><span>&#176;C</span></div>
+        <div class="ws-temps"><div class="ws-cell"><div class="ws-time">6AM</div><div class="ws-temp">13&deg;</div></div><div class="ws-cell"><div class="ws-time">8AM</div><div class="ws-temp">13&deg;</div></div><div class="ws-cell"><div class="ws-time">10AM</div><div class="ws-temp">14&deg;</div></div><div class="ws-cell"><div class="ws-time">12PM</div><div class="ws-temp">15&deg;</div></div><div class="ws-cell"><div class="ws-time">2PM</div><div class="ws-temp">19&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">4PM</div><div class="ws-temp">21&deg;</div></div><div class="ws-cell"><div class="ws-time">6PM</div><div class="ws-temp">20&deg;</div></div></div>
+      </div>
       <div class="activity">
         <div class="activity-time">9:30 AM &ndash; 12:30 PM</div>
         <div class="activity-name">teamLab Biovortex Kyoto</div>
@@ -894,6 +963,10 @@
       <span class="day-chevron">&#9660;</span>
     </div>
     <div class="day-content">
+      <div class="weather-strip">
+        <div class="ws-header"><span>&#9728;&#65039; Kyoto &mdash; Sunrise 5:30 AM &bull; Sunset 6:25 PM</span><span>&#176;C</span></div>
+        <div class="ws-temps"><div class="ws-cell"><div class="ws-time">6AM</div><div class="ws-temp">14&deg;</div></div><div class="ws-cell"><div class="ws-time">8AM</div><div class="ws-temp">16&deg;</div></div><div class="ws-cell"><div class="ws-time">10AM</div><div class="ws-temp">18&deg;</div></div><div class="ws-cell"><div class="ws-time">12PM</div><div class="ws-temp">20&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">2PM</div><div class="ws-temp">22&deg;</div></div><div class="ws-cell"><div class="ws-time">4PM</div><div class="ws-temp">21&deg;</div></div><div class="ws-cell"><div class="ws-time">6PM</div><div class="ws-temp">19&deg;</div></div></div>
+      </div>
       <div class="activity">
         <div class="activity-time">9:00 AM</div>
         <div class="activity-name">Kinkaku-ji (Golden Pavilion)</div>
@@ -950,6 +1023,10 @@
       <span class="day-chevron">&#9660;</span>
     </div>
     <div class="day-content">
+      <div class="weather-strip">
+        <div class="ws-header"><span>&#9728;&#65039; Kyoto &mdash; Sunrise 5:29 AM &bull; Sunset 6:26 PM</span><span>&#176;C</span></div>
+        <div class="ws-temps"><div class="ws-cell"><div class="ws-time">6AM</div><div class="ws-temp">11&deg;</div></div><div class="ws-cell"><div class="ws-time">8AM</div><div class="ws-temp">14&deg;</div></div><div class="ws-cell"><div class="ws-time">10AM</div><div class="ws-temp">17&deg;</div></div><div class="ws-cell"><div class="ws-time">12PM</div><div class="ws-temp">21&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">2PM</div><div class="ws-temp">23&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">4PM</div><div class="ws-temp">23&deg;</div></div><div class="ws-cell"><div class="ws-time">6PM</div><div class="ws-temp">20&deg;</div></div></div>
+      </div>
       <div class="activity">
         <div class="activity-time">8:00 AM</div>
         <div class="activity-name">Kiyomizu-dera Temple</div>
@@ -1014,6 +1091,10 @@
       <span class="day-chevron">&#9660;</span>
     </div>
     <div class="day-content">
+      <div class="weather-strip">
+        <div class="ws-header"><span>&#9728;&#65039; Nara &rarr; Osaka &mdash; Sunrise 5:28 AM &bull; Sunset 6:27 PM</span><span>&#176;C</span></div>
+        <div class="ws-temps"><div class="ws-cell"><div class="ws-time">6AM</div><div class="ws-temp">15&deg;</div></div><div class="ws-cell"><div class="ws-time">8AM</div><div class="ws-temp">18&deg;</div></div><div class="ws-cell"><div class="ws-time">10AM</div><div class="ws-temp">21&deg;</div></div><div class="ws-cell"><div class="ws-time">12PM</div><div class="ws-temp">24&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">2PM</div><div class="ws-temp">25&deg;</div></div><div class="ws-cell"><div class="ws-time">4PM</div><div class="ws-temp">23&deg;</div></div><div class="ws-cell"><div class="ws-time">6PM</div><div class="ws-temp">20&deg;</div></div></div>
+      </div>
       <div class="activity">
         <div class="activity-time">8:30 AM</div>
         <div class="activity-name">Checkout &amp; Train to Nara</div>
@@ -1084,6 +1165,10 @@
       <span class="day-chevron">&#9660;</span>
     </div>
     <div class="day-content">
+      <div class="weather-strip">
+        <div class="ws-header"><span>&#9728;&#65039; Osaka &mdash; Sunrise 5:28 AM &bull; Sunset 6:28 PM</span><span>&#176;C</span></div>
+        <div class="ws-temps"><div class="ws-cell"><div class="ws-time">6AM</div><div class="ws-temp">15&deg;</div></div><div class="ws-cell"><div class="ws-time">8AM</div><div class="ws-temp">18&deg;</div></div><div class="ws-cell"><div class="ws-time">10AM</div><div class="ws-temp">21&deg;</div></div><div class="ws-cell"><div class="ws-time">12PM</div><div class="ws-temp">22&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">2PM</div><div class="ws-temp">22&deg;</div></div><div class="ws-cell"><div class="ws-time">4PM</div><div class="ws-temp">22&deg;</div></div><div class="ws-cell"><div class="ws-time">6PM</div><div class="ws-temp">20&deg;</div></div></div>
+      </div>
       <div class="activity">
         <div class="activity-time">7:30 AM &mdash; Arrive at Park</div>
         <div class="activity-name">Universal Studios Japan</div>
@@ -1125,6 +1210,10 @@
       <span class="day-chevron">&#9660;</span>
     </div>
     <div class="day-content">
+      <div class="weather-strip">
+        <div class="ws-header"><span>&#9728;&#65039; Osaka &mdash; Sunrise 5:26 AM &bull; Sunset 6:29 PM</span><span>&#176;C</span></div>
+        <div class="ws-temps"><div class="ws-cell"><div class="ws-time">6AM</div><div class="ws-temp">14&deg;</div></div><div class="ws-cell"><div class="ws-time">8AM</div><div class="ws-temp">16&deg;</div></div><div class="ws-cell"><div class="ws-time">10AM</div><div class="ws-temp">20&deg;</div></div><div class="ws-cell"><div class="ws-time">12PM</div><div class="ws-temp">23&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">2PM</div><div class="ws-temp">24&deg;</div></div><div class="ws-cell"><div class="ws-time">4PM</div><div class="ws-temp">23&deg;</div></div><div class="ws-cell"><div class="ws-time">6PM</div><div class="ws-temp">21&deg;</div></div></div>
+      </div>
       <div class="activity">
         <div class="activity-time">9:00 &ndash; 11:30 AM</div>
         <div class="activity-name">Family Kimono Photoshoot</div>
@@ -1171,6 +1260,10 @@
       <span class="day-chevron">&#9660;</span>
     </div>
     <div class="day-content">
+      <div class="weather-strip">
+        <div class="ws-header"><span>&#9728;&#65039; Osaka &mdash; Sunrise 5:25 AM &bull; Sunset 6:30 PM</span><span>&#176;C</span></div>
+        <div class="ws-temps"><div class="ws-cell"><div class="ws-time">6AM</div><div class="ws-temp">17&deg;</div></div><div class="ws-cell"><div class="ws-time">8AM</div><div class="ws-temp">19&deg;</div></div><div class="ws-cell"><div class="ws-time">10AM</div><div class="ws-temp">22&deg;</div></div><div class="ws-cell"><div class="ws-time">12PM</div><div class="ws-temp">24&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">2PM</div><div class="ws-temp">24&deg;</div></div><div class="ws-cell"><div class="ws-time">4PM</div><div class="ws-temp">23&deg;</div></div><div class="ws-cell"><div class="ws-time">6PM</div><div class="ws-temp">21&deg;</div></div></div>
+      </div>
       <div class="activity">
         <div class="activity-time">Morning</div>
         <div class="activity-name">Umeda Sky Building</div>
@@ -1208,6 +1301,10 @@
       <span class="day-chevron">&#9660;</span>
     </div>
     <div class="day-content">
+      <div class="weather-strip">
+        <div class="ws-header"><span>&#9728;&#65039; Osaka &mdash; Sunrise 5:24 AM &bull; Sunset 6:31 PM</span><span>&#176;C</span></div>
+        <div class="ws-temps"><div class="ws-cell"><div class="ws-time">6AM</div><div class="ws-temp">18&deg;</div></div><div class="ws-cell"><div class="ws-time">8AM</div><div class="ws-temp">18&deg;</div></div><div class="ws-cell"><div class="ws-time">10AM</div><div class="ws-temp">19&deg;</div></div><div class="ws-cell ws-peak"><div class="ws-time">12PM</div><div class="ws-temp">21&deg;</div></div><div class="ws-cell"><div class="ws-time">2PM</div><div class="ws-temp">20&deg;</div></div><div class="ws-cell"><div class="ws-time">4PM</div><div class="ws-temp">19&deg;</div></div><div class="ws-cell"><div class="ws-time">6PM</div><div class="ws-temp">19&deg;</div></div></div>
+      </div>
       <div class="activity">
         <div class="activity-time">9:00 &ndash; 10:00 AM</div>
         <div class="activity-name">Relaxed Breakfast &amp; Checkout</div>
